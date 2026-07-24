@@ -1,0 +1,8 @@
+spec,event,N,pre_avg,post_avg,sig_5pct
+1. binary treatment,2008,209,1.26,0.79,0/6
+2. continuous treatment,2008,209,0.41,0.59,0/6
+3. drop mfg + arts,2008,187,0.23,0.1,0/6
+4. base year t-2,2008,209,0.18,0.32,0/6
+5. unweighted,2008,209,0.37,0.32,0/6
+6. dot-com 2001,2001,190,-0.57,0.25,2/6
+7. COVID 2020,2020,171,0.07,-0.18,0/6

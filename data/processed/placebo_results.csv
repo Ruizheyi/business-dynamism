@@ -1,0 +1,10 @@
+regressor,N,beta,se,p
+ipp_share,513,-0.057,0.064,0.376
+ipp_share_lag3,456,-0.148,0.088,0.092
+ipp_share_trend,513,0.142,0.063,0.025
+equip_share,513,0.091,0.066,0.167
+equip_share_lag3,456,0.159,0.077,0.04
+equip_share_trend,513,-0.046,0.047,0.327
+struct_share,513,-0.044,0.052,0.401
+struct_share_lag3,456,-0.037,0.044,0.403
+struct_share_trend,513,-0.049,0.06,0.409

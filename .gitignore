@@ -1,0 +1,15 @@
+data/raw/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+venv/
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.tmp
+*.swp

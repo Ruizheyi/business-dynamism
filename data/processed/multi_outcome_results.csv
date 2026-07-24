@@ -1,0 +1,8 @@
+outcome,N,beta,p,beta_lag3,p_lag3,beta_trend,p_trend
+Job reallocation rate,513,-0.057,0.376,-0.148,0.092,0.142,0.025
+Establishment entry rate,513,-0.068,0.035,-0.068,0.015,-0.002,0.939
+Establishment exit rate,513,-0.015,0.455,-0.044,0.041,0.023,0.572
+Firm death rate,513,-0.006,0.74,-0.037,0.063,0.01,0.722
+Young-firm employment share,513,-0.016,0.822,-0.049,0.465,0.014,0.635
+Job creation from births,513,-0.033,0.13,-0.033,0.087,0.007,0.754
+Job destruction from deaths,513,-0.006,0.744,-0.036,0.088,0.046,0.031

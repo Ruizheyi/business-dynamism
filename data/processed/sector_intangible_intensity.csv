@@ -1,0 +1,514 @@
+year,sector,naics_prefix,ipp_share
+1997,"Agriculture, forestry, fishing, hunting",11,0.7434944237918216
+1998,"Agriculture, forestry, fishing, hunting",11,0.7380073800738007
+1999,"Agriculture, forestry, fishing, hunting",11,0.43478260869565216
+2000,"Agriculture, forestry, fishing, hunting",11,0.4
+2001,"Agriculture, forestry, fishing, hunting",11,0.3816793893129771
+2002,"Agriculture, forestry, fishing, hunting",11,0.34602076124567477
+2003,"Agriculture, forestry, fishing, hunting",11,0.32573289902280134
+2004,"Agriculture, forestry, fishing, hunting",11,0.2881844380403458
+2005,"Agriculture, forestry, fishing, hunting",11,0.5361930294906168
+2006,"Agriculture, forestry, fishing, hunting",11,0.558659217877095
+2007,"Agriculture, forestry, fishing, hunting",11,0.5494505494505495
+2008,"Agriculture, forestry, fishing, hunting",11,0.46511627906976744
+2009,"Agriculture, forestry, fishing, hunting",11,0.23866348448687352
+2010,"Agriculture, forestry, fishing, hunting",11,0.22831050228310507
+2011,"Agriculture, forestry, fishing, hunting",11,0.20161290322580644
+2012,"Agriculture, forestry, fishing, hunting",11,0.16286644951140067
+2013,"Agriculture, forestry, fishing, hunting",11,0.1434720229555237
+2014,"Agriculture, forestry, fishing, hunting",11,0.25608194622279135
+2015,"Agriculture, forestry, fishing, hunting",11,0.34782608695652173
+2016,"Agriculture, forestry, fishing, hunting",11,0.6012024048096193
+2017,"Agriculture, forestry, fishing, hunting",11,0.5725190839694656
+2018,"Agriculture, forestry, fishing, hunting",11,0.591715976331361
+2019,"Agriculture, forestry, fishing, hunting",11,0.5474452554744526
+2020,"Agriculture, forestry, fishing, hunting",11,0.5535055350553505
+2021,"Agriculture, forestry, fishing, hunting",11,0.4784688995215311
+2022,"Agriculture, forestry, fishing, hunting",11,0.41899441340782123
+2023,"Agriculture, forestry, fishing, hunting",11,0.5517241379310345
+1997,Mining,21,6.341463414634147
+1998,Mining,21,5.755395683453237
+1999,Mining,21,15.424164524421593
+2000,Mining,21,8.454106280193237
+2001,Mining,21,5.847953216374269
+2002,Mining,21,4.358353510895884
+2003,Mining,21,3.954802259887006
+2004,Mining,21,2.9921259842519685
+2005,Mining,21,2.027027027027027
+2006,Mining,21,2.2399999999999998
+2007,Mining,21,2.4763292061179896
+2008,Mining,21,2.1712158808933
+2009,Mining,21,2.7264731750219875
+2010,Mining,21,2.350265352539803
+2011,Mining,21,2.2323983972524326
+2012,Mining,21,2.0505484024797327
+2013,Mining,21,2.1665864227250844
+2014,Mining,21,1.9011406844106464
+2015,Mining,21,2.642159678345778
+2016,Mining,21,4.482390608324439
+2017,Mining,21,4.055087987758226
+2018,Mining,21,4.45859872611465
+2019,Mining,21,5.163727959697733
+2020,Mining,21,8.16326530612245
+2021,Mining,21,9.463414634146341
+2022,Mining,21,8.255563531945441
+2023,Mining,21,7.2570725707257075
+1997,Utilities,22,8.333333333333332
+1998,Utilities,22,6.382978723404255
+1999,Utilities,22,6.827309236947792
+2000,Utilities,22,6.0606060606060606
+2001,Utilities,22,5.236270753512132
+2002,Utilities,22,4.889589905362776
+2003,Utilities,22,4.068857589984351
+2004,Utilities,22,4.166666666666666
+2005,Utilities,22,4.278922345483361
+2006,Utilities,22,3.8978494623655906
+2007,Utilities,22,3.3057851239669422
+2008,Utilities,22,3.954802259887006
+2009,Utilities,22,4.722979109900091
+2010,Utilities,22,4.4598612487611495
+2011,Utilities,22,4.41988950276243
+2012,Utilities,22,4.313725490196078
+2013,Utilities,22,4.653061224489797
+2014,Utilities,22,4.782298358315489
+2015,Utilities,22,4.92546986390149
+2016,Utilities,22,5.374396135265701
+2017,Utilities,22,6.951871657754011
+2018,Utilities,22,7.014388489208632
+2019,Utilities,22,6.821873308067136
+2020,Utilities,22,8.006198347107437
+2021,Utilities,22,8.185734801340356
+2022,Utilities,22,7.118055555555555
+2023,Utilities,22,6.294964028776978
+1997,Construction,23,13.357400722021662
+1998,Construction,23,11.214953271028037
+1999,Construction,23,11.325966850828726
+2000,Construction,23,7.228915662650602
+2001,Construction,23,4.778156996587031
+2002,Construction,23,4.430379746835443
+2003,Construction,23,4.545454545454546
+2004,Construction,23,7.142857142857144
+2005,Construction,23,6.172839506172839
+2006,Construction,23,6.206896551724139
+2007,Construction,23,3.632478632478633
+2008,Construction,23,4.042553191489361
+2009,Construction,23,7.142857142857142
+2010,Construction,23,5.714285714285714
+2011,Construction,23,6.441717791411043
+2012,Construction,23,7.650273224043715
+2013,Construction,23,7.39856801909308
+2014,Construction,23,6.912442396313365
+2015,Construction,23,7.276507276507277
+2016,Construction,23,7.09812108559499
+2017,Construction,23,7.446808510638298
+2018,Construction,23,8.588957055214724
+2019,Construction,23,8.072487644151566
+2020,Construction,23,9.874326750448832
+2021,Construction,23,10.57513914656772
+2022,Construction,23,9.748892171344165
+2023,Construction,23,8.027522935779816
+1997,Manufacturing,"31,32,33",45.13578549329667
+1998,Manufacturing,"31,32,33",45.91401378404989
+1999,Manufacturing,"31,32,33",48.14211212516297
+2000,Manufacturing,"31,32,33",49.42037827943868
+2001,Manufacturing,"31,32,33",51.28913443830571
+2002,Manufacturing,"31,32,33",52.164948453608254
+2003,Manufacturing,"31,32,33",54.28265524625267
+2004,Manufacturing,"31,32,33",55.013736263736256
+2005,Manufacturing,"31,32,33",54.331683168316836
+2006,Manufacturing,"31,32,33",54.923476754259305
+2007,Manufacturing,"31,32,33",53.05660377358491
+2008,Manufacturing,"31,32,33",53.76704137766085
+2009,Manufacturing,"31,32,33",58.27277808831749
+2010,Manufacturing,"31,32,33",58.136986301369866
+2011,Manufacturing,"31,32,33",55.26510480887793
+2012,Manufacturing,"31,32,33",53.46966911764706
+2013,Manufacturing,"31,32,33",53.13503102931736
+2014,Manufacturing,"31,32,33",53.86044591246903
+2015,Manufacturing,"31,32,33",53.58994814519345
+2016,Manufacturing,"31,32,33",55.698202646652184
+2017,Manufacturing,"31,32,33",55.5640828856485
+2018,Manufacturing,"31,32,33",55.297715416441804
+2019,Manufacturing,"31,32,33",57.420586703697275
+2020,Manufacturing,"31,32,33",60.3418207185211
+2021,Manufacturing,"31,32,33",61.10929319371727
+2022,Manufacturing,"31,32,33",61.18850029638412
+2023,Manufacturing,"31,32,33",62.53034413822648
+1997,Wholesale trade,42,10.218978102189782
+1998,Wholesale trade,42,11.645101663585951
+1999,Wholesale trade,42,16.171003717472118
+2000,Wholesale trade,42,19.264448336252187
+2001,Wholesale trade,42,22.80334728033473
+2002,Wholesale trade,42,25.877192982456144
+2003,Wholesale trade,42,24.568138195777355
+2004,Wholesale trade,42,24.61005199306759
+2005,Wholesale trade,42,25.067024128686327
+2006,Wholesale trade,42,24.14772727272727
+2007,Wholesale trade,42,27.73972602739726
+2008,Wholesale trade,42,28.64
+2009,Wholesale trade,42,31.97556008146639
+2010,Wholesale trade,42,30.090090090090087
+2011,Wholesale trade,42,29.940119760479046
+2012,Wholesale trade,42,29.985855728429982
+2013,Wholesale trade,42,30.875576036866363
+2014,Wholesale trade,42,30.65693430656934
+2015,Wholesale trade,42,29.326923076923073
+2016,Wholesale trade,42,30.88071348940914
+2017,Wholesale trade,42,33.37004405286344
+2018,Wholesale trade,42,34.91062039957939
+2019,Wholesale trade,42,37.05636743215032
+2020,Wholesale trade,42,40.29680365296804
+2021,Wholesale trade,42,39.635995955510616
+2022,Wholesale trade,42,37.73584905660377
+2023,Wholesale trade,42,35.18385003604903
+1997,Retail trade,"44,45",6.724511930585683
+1998,Retail trade,"44,45",7.1813285457809695
+1999,Retail trade,"44,45",8.674304418985269
+2000,Retail trade,"44,45",10.05586592178771
+2001,Retail trade,"44,45",10.402219140083218
+2002,Retail trade,"44,45",11.396011396011396
+2003,Retail trade,"44,45",12.262958280657395
+2004,Retail trade,"44,45",12.557603686635947
+2005,Retail trade,"44,45",12.414578587699317
+2006,Retail trade,"44,45",12.719751809720787
+2007,Retail trade,"44,45",13.746065057712487
+2008,Retail trade,"44,45",14.516129032258066
+2009,Retail trade,"44,45",17.829457364341085
+2010,Retail trade,"44,45",17.485549132947973
+2011,Retail trade,"44,45",18.421052631578945
+2012,Retail trade,"44,45",18.83040935672515
+2013,Retail trade,"44,45",19.124423963133644
+2014,Retail trade,"44,45",19.2
+2015,Retail trade,"44,45",19.77507029053421
+2016,Retail trade,"44,45",19.895287958115183
+2017,Retail trade,"44,45",21.784565916398712
+2018,Retail trade,"44,45",23.599999999999998
+2019,Retail trade,"44,45",25.56053811659193
+2020,Retail trade,"44,45",27.56977535738598
+2021,Retail trade,"44,45",27.900059488399766
+2022,Retail trade,"44,45",27.050882658359292
+2023,Retail trade,"44,45",25.806451612903224
+1997,Transportation and warehousing,"48,49",8.915304606240714
+1998,Transportation and warehousing,"48,49",7.113543091655268
+1999,Transportation and warehousing,"48,49",7.648725212464591
+2000,Transportation and warehousing,"48,49",8.209959623149395
+2001,Transportation and warehousing,"48,49",10.694444444444445
+2002,Transportation and warehousing,"48,49",4.9523809523809526
+2003,Transportation and warehousing,"48,49",4.791666666666666
+2004,Transportation and warehousing,"48,49",4.553734061930784
+2005,Transportation and warehousing,"48,49",4.368174726989079
+2006,Transportation and warehousing,"48,49",4.641909814323607
+2007,Transportation and warehousing,"48,49",3.9189189189189193
+2008,Transportation and warehousing,"48,49",4.315659679408138
+2009,Transportation and warehousing,"48,49",5.175292153589315
+2010,Transportation and warehousing,"48,49",4.580152671755725
+2011,Transportation and warehousing,"48,49",5.502063273727647
+2012,Transportation and warehousing,"48,49",5.638665132336018
+2013,Transportation and warehousing,"48,49",5.803108808290155
+2014,Transportation and warehousing,"48,49",6.783719074221868
+2015,Transportation and warehousing,"48,49",7.313317936874518
+2016,Transportation and warehousing,"48,49",8.368200836820083
+2017,Transportation and warehousing,"48,49",7.764705882352942
+2018,Transportation and warehousing,"48,49",8.881118881118882
+2019,Transportation and warehousing,"48,49",8.78877400295421
+2020,Transportation and warehousing,"48,49",9.591474245115455
+2021,Transportation and warehousing,"48,49",10.35958904109589
+2022,Transportation and warehousing,"48,49",10.258249641319942
+2023,Transportation and warehousing,"48,49",9.637046307884855
+1997,Information,51,42.72467902995721
+1998,Information,51,43.40694006309148
+1999,Information,51,42.27513227513228
+2000,Information,51,41.085271317829466
+2001,Information,51,43.28703703703704
+2002,Information,51,53.32972387655658
+2003,Information,51,56.88816855753647
+2004,Information,51,56.20360551431601
+2005,Information,51,55.55555555555556
+2006,Information,51,53.72670807453416
+2007,Information,51,51.52013147082991
+2008,Information,51,51.67364016736402
+2009,Information,51,54.38437074057247
+2010,Information,51,54.154957848253716
+2011,Information,51,55.02890173410405
+2012,Information,51,55.0965250965251
+2013,Information,51,54.96024887659868
+2014,Information,51,54.93710691823899
+2015,Information,51,53.418931024186335
+2016,Information,51,54.18705818379554
+2017,Information,51,54.63211928623808
+2018,Information,51,55.87831655992681
+2019,Information,51,57.139518579107275
+2020,Information,51,58.85534024335286
+2021,Information,51,59.30047694753576
+2022,Information,51,60.71428571428572
+2023,Information,51,61.829753381066034
+1997,Finance and insurance,52,15.076923076923077
+1998,Finance and insurance,52,16.48444070647603
+1999,Finance and insurance,52,19.332827899924183
+2000,Finance and insurance,52,22.54974207811349
+2001,Finance and insurance,52,24.274809160305345
+2002,Finance and insurance,52,24.816326530612244
+2003,Finance and insurance,52,26.65036674816626
+2004,Finance and insurance,52,25.85470085470085
+2005,Finance and insurance,52,24.89768076398363
+2006,Finance and insurance,52,24.170918367346935
+2007,Finance and insurance,52,24.69063052445492
+2008,Finance and insurance,52,29.229711141678127
+2009,Finance and insurance,52,42.22027972027971
+2010,Finance and insurance,52,36.14262560777958
+2011,Finance and insurance,52,36.6542750929368
+2012,Finance and insurance,52,36.28028814669286
+2013,Finance and insurance,52,35.247883917775084
+2014,Finance and insurance,52,33.62637362637363
+2015,Finance and insurance,52,34.321827904715605
+2016,Finance and insurance,52,37.196518552450755
+2017,Finance and insurance,52,40.19918515165233
+2018,Finance and insurance,52,40.52936311000827
+2019,Finance and insurance,52,43.28411955347497
+2020,Finance and insurance,52,49.277016742770165
+2021,Finance and insurance,52,52.0086862106406
+2022,Finance and insurance,52,54.99477897667943
+2023,Finance and insurance,52,54.442053489086994
+1997,"Real estate, rental and leasing",53,0.3461704889658157
+1998,"Real estate, rental and leasing",53,0.35799522673031026
+1999,"Real estate, rental and leasing",53,0.38468263682461973
+2000,"Real estate, rental and leasing",53,0.3036437246963563
+2001,"Real estate, rental and leasing",53,0.23345005836251453
+2002,"Real estate, rental and leasing",53,0.3611241953210865
+2003,"Real estate, rental and leasing",53,0.23930180180180177
+2004,"Real estate, rental and leasing",53,0.24952471482889735
+2005,"Real estate, rental and leasing",53,0.26074259491030455
+2006,"Real estate, rental and leasing",53,0.2590673575129534
+2007,"Real estate, rental and leasing",53,0.3288271830471319
+2008,"Real estate, rental and leasing",53,0.4747586643456243
+2009,"Real estate, rental and leasing",53,0.6035783574046131
+2010,"Real estate, rental and leasing",53,0.6489292667099287
+2011,"Real estate, rental and leasing",53,0.5514316012725345
+2012,"Real estate, rental and leasing",53,0.6738299034784192
+2013,"Real estate, rental and leasing",53,0.8695652173913043
+2014,"Real estate, rental and leasing",53,0.9579639691163855
+2015,"Real estate, rental and leasing",53,1.053423626787058
+2016,"Real estate, rental and leasing",53,1.2418075198344256
+2017,"Real estate, rental and leasing",53,1.3234515616728428
+2018,"Real estate, rental and leasing",53,1.3964784456587735
+2019,"Real estate, rental and leasing",53,1.4391365180891464
+2020,"Real estate, rental and leasing",53,1.3228257810301152
+2021,"Real estate, rental and leasing",53,1.1521096061030671
+2022,"Real estate, rental and leasing",53,1.1472845116590926
+2023,"Real estate, rental and leasing",53,1.2974203338391503
+1997,"Professional, scientific, technical services",54,58.11320754716981
+1998,"Professional, scientific, technical services",54,54.93421052631579
+1999,"Professional, scientific, technical services",54,56.40050697084917
+2000,"Professional, scientific, technical services",54,58.428246013667426
+2001,"Professional, scientific, technical services",54,56.95443645083933
+2002,"Professional, scientific, technical services",54,55.76470588235294
+2003,"Professional, scientific, technical services",54,56.74778761061946
+2004,"Professional, scientific, technical services",54,56.46551724137932
+2005,"Professional, scientific, technical services",54,56.056338028169016
+2006,"Professional, scientific, technical services",54,59.38661710037175
+2007,"Professional, scientific, technical services",54,59.473684210526315
+2008,"Professional, scientific, technical services",54,60.72308956450287
+2009,"Professional, scientific, technical services",54,63.79897785349233
+2010,"Professional, scientific, technical services",54,63.113367174280874
+2011,"Professional, scientific, technical services",54,66.03448275862068
+2012,"Professional, scientific, technical services",54,64.81927710843374
+2013,"Professional, scientific, technical services",54,63.910969793322735
+2014,"Professional, scientific, technical services",54,65.91478696741855
+2015,"Professional, scientific, technical services",54,64.8689138576779
+2016,"Professional, scientific, technical services",54,65.96055514974434
+2017,"Professional, scientific, technical services",54,65.86183769282361
+2018,"Professional, scientific, technical services",54,67.49116607773851
+2019,"Professional, scientific, technical services",54,68.6652763295099
+2020,"Professional, scientific, technical services",54,72.01858544140424
+2021,"Professional, scientific, technical services",54,72.9184925503944
+2022,"Professional, scientific, technical services",54,73.8255033557047
+2023,"Professional, scientific, technical services",54,70.47729022324864
+1997,Management of companies,55,25.274725274725274
+1998,Management of companies,55,29.648241206030157
+1999,Management of companies,55,35.294117647058826
+2000,Management of companies,55,40.0
+2001,Management of companies,55,46.32768361581921
+2002,Management of companies,55,49.03846153846153
+2003,Management of companies,55,50.256410256410255
+2004,Management of companies,55,54.696132596685075
+2005,Management of companies,55,54.54545454545454
+2006,Management of companies,55,57.80346820809248
+2007,Management of companies,55,57.98319327731093
+2008,Management of companies,55,60.19736842105263
+2009,Management of companies,55,66.01941747572816
+2010,Management of companies,55,64.45993031358886
+2011,Management of companies,55,66.66666666666666
+2012,Management of companies,55,65.69920844327176
+2013,Management of companies,55,65.3061224489796
+2014,Management of companies,55,63.525835866261396
+2015,Management of companies,55,60.95238095238095
+2016,Management of companies,55,57.925072046109506
+2017,Management of companies,55,56.86813186813187
+2018,Management of companies,55,57.220708446866475
+2019,Management of companies,55,58.59375
+2020,Management of companies,55,60.27777777777777
+2021,Management of companies,55,59.183673469387756
+2022,Management of companies,55,60.235294117647065
+2023,Management of companies,55,59.95670995670995
+1997,Administrative and waste management,56,15.540540540540537
+1998,Administrative and waste management,56,19.791666666666664
+1999,Administrative and waste management,56,23.949579831932773
+2000,Administrative and waste management,56,26.996197718631176
+2001,Administrative and waste management,56,30.46875
+2002,Administrative and waste management,56,34.412955465587046
+2003,Administrative and waste management,56,33.21554770318021
+2004,Administrative and waste management,56,34.41558441558442
+2005,Administrative and waste management,56,33.753943217665615
+2006,Administrative and waste management,56,32.57790368271955
+2007,Administrative and waste management,56,33.333333333333336
+2008,Administrative and waste management,56,35.714285714285715
+2009,Administrative and waste management,56,40.73033707865169
+2010,Administrative and waste management,56,39.44444444444444
+2011,Administrative and waste management,56,39.74683544303797
+2012,Administrative and waste management,56,43.7956204379562
+2013,Administrative and waste management,56,42.91938997821351
+2014,Administrative and waste management,56,43.442622950819676
+2015,Administrative and waste management,56,41.73228346456693
+2016,Administrative and waste management,56,41.622574955908284
+2017,Administrative and waste management,56,43.24324324324324
+2018,Administrative and waste management,56,42.40837696335079
+2019,Administrative and waste management,56,42.48062015503876
+2020,Administrative and waste management,56,48.148148148148145
+2021,Administrative and waste management,56,46.345514950166105
+2022,Administrative and waste management,56,45.78947368421053
+2023,Administrative and waste management,56,43.28358208955225
+1997,Educational services,61,13.548387096774196
+1998,Educational services,61,13.714285714285715
+1999,Educational services,61,15.254237288135593
+2000,Educational services,61,14.832535885167466
+2001,Educational services,61,14.732142857142858
+2002,Educational services,61,16.46586345381526
+2003,Educational services,61,17.142857142857142
+2004,Educational services,61,17.624521072796934
+2005,Educational services,61,18.218623481781375
+2006,Educational services,61,18.63799283154122
+2007,Educational services,61,18.566775244299674
+2008,Educational services,61,19.469026548672566
+2009,Educational services,61,22.916666666666664
+2010,Educational services,61,26.198083067092647
+2011,Educational services,61,28.66043613707165
+2012,Educational services,61,30.088495575221234
+2013,Educational services,61,31.25
+2014,Educational services,61,30.51359516616314
+2015,Educational services,61,29.44297082228116
+2016,Educational services,61,28.000000000000004
+2017,Educational services,61,26.25
+2018,Educational services,61,26.034063260340627
+2019,Educational services,61,28.967254408060448
+2020,Educational services,61,31.297709923664126
+2021,Educational services,61,34.35114503816794
+2022,Educational services,61,33.177570093457945
+2023,Educational services,61,31.469979296066253
+1997,Health care and social assistance,62,9.397163120567376
+1998,Health care and social assistance,62,8.51063829787234
+1999,Health care and social assistance,62,8.856682769726248
+2000,Health care and social assistance,62,8.978328173374614
+2001,Health care and social assistance,62,10.074074074074074
+2002,Health care and social assistance,62,14.66992665036675
+2003,Health care and social assistance,62,8.39243498817967
+2004,Health care and social assistance,62,7.82122905027933
+2005,Health care and social assistance,62,7.768924302788845
+2006,Health care and social assistance,62,7.202993451824134
+2007,Health care and social assistance,62,7.201309328968904
+2008,Health care and social assistance,62,8.03500397772474
+2009,Health care and social assistance,62,9.04480135249366
+2010,Health care and social assistance,62,9.30232558139535
+2011,Health care and social assistance,62,10.578512396694215
+2012,Health care and social assistance,62,11.257763975155278
+2013,Health care and social assistance,62,11.483967188665176
+2014,Health care and social assistance,62,12.204424103737606
+2015,Health care and social assistance,62,12.55380200860832
+2016,Health care and social assistance,62,13.34716459197787
+2017,Health care and social assistance,62,13.883557261676263
+2018,Health care and social assistance,62,14.73684210526316
+2019,Health care and social assistance,62,14.600231749710312
+2020,Health care and social assistance,62,15.178050204319907
+2021,Health care and social assistance,62,15.760869565217392
+2022,Health care and social assistance,62,15.723270440251572
+2023,Health care and social assistance,62,15.565345080763581
+1997,"Arts, entertainment, recreation",71,38.18181818181819
+1998,"Arts, entertainment, recreation",71,38.63636363636363
+1999,"Arts, entertainment, recreation",71,31.277533039647576
+2000,"Arts, entertainment, recreation",71,26.73992673992674
+2001,"Arts, entertainment, recreation",71,30.081300813008127
+2002,"Arts, entertainment, recreation",71,32.47863247863248
+2003,"Arts, entertainment, recreation",71,35.65217391304348
+2004,"Arts, entertainment, recreation",71,33.739837398373986
+2005,"Arts, entertainment, recreation",71,35.26970954356846
+2006,"Arts, entertainment, recreation",71,32.55813953488372
+2007,"Arts, entertainment, recreation",71,29.10958904109589
+2008,"Arts, entertainment, recreation",71,30.0
+2009,"Arts, entertainment, recreation",71,30.66202090592335
+2010,"Arts, entertainment, recreation",71,34.29752066115703
+2011,"Arts, entertainment, recreation",71,33.87096774193549
+2012,"Arts, entertainment, recreation",71,32.69961977186311
+2013,"Arts, entertainment, recreation",71,30.98591549295775
+2014,"Arts, entertainment, recreation",71,28.197674418604652
+2015,"Arts, entertainment, recreation",71,30.149253731343283
+2016,"Arts, entertainment, recreation",71,26.31578947368421
+2017,"Arts, entertainment, recreation",71,28.837209302325583
+2018,"Arts, entertainment, recreation",71,28.482328482328477
+2019,"Arts, entertainment, recreation",71,30.020703933747413
+2020,"Arts, entertainment, recreation",71,34.25
+2021,"Arts, entertainment, recreation",71,36.77581863979849
+2022,"Arts, entertainment, recreation",71,34.71698113207547
+2023,"Arts, entertainment, recreation",71,35.48922056384743
+1997,Accommodation and food services,72,4.150943396226416
+1998,Accommodation and food services,72,5.6939501779359425
+1999,Accommodation and food services,72,2.72108843537415
+2000,Accommodation and food services,72,3.4482758620689653
+2001,Accommodation and food services,72,3.4602076124567476
+2002,Accommodation and food services,72,3.018867924528302
+2003,Accommodation and food services,72,3.9285714285714293
+2004,Accommodation and food services,72,3.7593984962406015
+2005,Accommodation and food services,72,3.692307692307692
+2006,Accommodation and food services,72,3.1088082901554404
+2007,Accommodation and food services,72,2.608695652173913
+2008,Accommodation and food services,72,2.6408450704225355
+2009,Accommodation and food services,72,3.225806451612904
+2010,Accommodation and food services,72,4.382470119521913
+2011,Accommodation and food services,72,5.30035335689046
+2012,Accommodation and food services,72,5.438066465256798
+2013,Accommodation and food services,72,6.313131313131313
+2014,Accommodation and food services,72,7.196029776674938
+2015,Accommodation and food services,72,6.911447084233262
+2016,Accommodation and food services,72,7.5221238938053085
+2017,Accommodation and food services,72,10.344827586206897
+2018,Accommodation and food services,72,11.11111111111111
+2019,Accommodation and food services,72,11.50278293135436
+2020,Accommodation and food services,72,13.669064748201437
+2021,Accommodation and food services,72,14.878048780487804
+2022,Accommodation and food services,72,14.730290456431533
+2023,Accommodation and food services,72,13.812154696132598
+1997,Other services,81,14.795918367346939
+1998,Other services,81,17.28395061728395
+1999,Other services,81,12.790697674418603
+2000,Other services,81,13.793103448275861
+2001,Other services,81,14.332247557003258
+2002,Other services,81,13.131313131313133
+2003,Other services,81,13.864306784660767
+2004,Other services,81,15.032679738562091
+2005,Other services,81,16.612377850162865
+2006,Other services,81,15.759312320916907
+2007,Other services,81,16.315789473684212
+2008,Other services,81,17.41424802110818
+2009,Other services,81,19.756838905775076
+2010,Other services,81,22.408026755852845
+2011,Other services,81,24.74226804123711
+2012,Other services,81,26.116838487972505
+2013,Other services,81,28.428093645484953
+2014,Other services,81,29.72222222222222
+2015,Other services,81,29.78208232445521
+2016,Other services,81,30.022075055187642
+2017,Other services,81,35.42713567839196
+2018,Other services,81,38.24884792626729
+2019,Other services,81,38.36477987421383
+2020,Other services,81,42.55765199161425
+2021,Other services,81,41.94831013916501
+2022,Other services,81,43.16831683168317
+2023,Other services,81,40.663176265270515
