@@ -34,17 +34,7 @@
 
 
 
-<table>
-
-<tr><th>What</th><th>Source</th><th>Coverage</th></tr>
-
-<tr><td>Job flows \& employment</td><td>Census BDS</td><td>3-digit NAICS × firm age, 1978–2023</td></tr>
-
-<tr><td>National investment</td><td>BEA NIPA Table 5.3.5</td><td>Software \& IPP spending, 1947–2023</td></tr>
-
-<tr><td>By-sector investment</td><td>BEA Fixed Assets Tables 3.7\*</td><td>IPP, equipment, structures by industry, 1947–2023</td></tr>
-
-</table>
+<p>Job flows and employment come from Census BDS (3-digit NAICS × firm age, 1978–2023). National investment figures come from BEA NIPA Table 5.3.5 (software \& IPP spending, 1947–2023). By-sector investment data come from BEA Fixed Assets Tables 3.7\* (IPP, equipment, structures by industry, 1947–2023).</p>
 
 
 
@@ -56,5 +46,5 @@
 
 
 
-<p><b>Intangible intensity:</b> IPP (intellectual
+<p><b>Intangible intensity:</b> IPP (intellectual property products—R\&D, software, entertainment originals) as % of total fixed investment per sector. Software-only numbers aren't published by industry, so IPP is the finest detail available.</p>
 
