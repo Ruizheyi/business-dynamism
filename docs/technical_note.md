@@ -1,102 +1,51 @@
 <h1>Technical Note: Identifying the Intangible Capital Channel in Declining Business Dynamism</h1>
 
+<h2>Measurement Considerations</h2>
 
+<p>The job reallocation rate derives from BDS data: job creation and destruction, normalized by an employment denominator. The choice of denominator proves consequential.</p>
 
-<h2>Data and Denominators</h2>
+<p>BDS offers two measures: end-of-period employment and the DHS average (current and prior year, divided by 2). Literature convention favors the DHS average. Initial versions of this analysis relied on end-of-period employment, producing sectoral rankings that diverged from the standard and rates that appeared artificially elevated in sectors with expanding employment. Auditing both approaches revealed systematic differences in cross-industry comparisons, likely reflecting that BDS suppression operates at the row level (entire establishments) rather than partial records.</p>
 
+<p>The treatment of new establishments warrants mention. JRR excludes age-0 firms consistent with original methodology. Young-firm employment shares, by contrast, include age-0 entrants in both numerator and denominator, following standard practice. The age conventions differ between measures, but sensitivity analysis suggests the substantive findings do not depend on this choice.</p>
 
+<h2>Aggregation Strategy: From 3-Digit to Sector-Year</h2>
 
-<p>The job reallocation rate is constructed from BDS data: job creation plus destruction, divided by an employment denominator, times 100. But which denominator matters.</p>
+<p>Treatment data (IPP intensity) originates from BEA Fixed Assets at the 2-digit BEA industry level, yielding 19 sectors. Job data derive from BDS at 3-digit NAICS. Preliminary analysis conducted regressions at the 3-digit level by assigning each 3-digit industry the IPP intensity of its parent sector. This approach encountered limitations.</p>
 
+<p>Treatment variation becomes zero within the sector-year cell, making 3-digit fixed effects redundant when sector fixed effects are present. The approach also introduces a clustering problem: approximately 86 industries but only 19 cluster groups, yielding a singular clustered covariance matrix with roughly 40 parameters.</p>
 
+<p>Aggregation to the sector-year level resolves both issues. The resulting dataset contains 513 observations with meaningful treatment variation. The cost is acceptable: 3-digit detail remains embedded in the aggregation weights, influencing which establishments contribute to each sector-year observation, though it does not directly enter the identifying variation in the regression.</p>
 
-<p>BDS publishes two versions: end-of-period employment and the DHS average (current year plus prior year, divided by 2). The literature standard is the DHS average. Early versions of this project used end-of-period employment, which produced different sectoral rankings and artificially inflated rates in sectors with high employment growth. The error was caught through an audit comparing the two. Since BDS suppression is row-wise (whole establishments, not partial), using the wrong denominator systematically biases cross-industry comparisons.</p>
+<h2>Identifying the Most Important Outcome</h2>
 
+<p>Job reallocation combines job creation and destruction. If intangible capital primarily raises barriers to establishment entry by increasing the capital scale required for competitive software stacks, suppressed births might coexist with unchanged incumbent churn.</p>
 
+<p>Shift-share analysis indicated that 105% of aggregate JRR decline originated within sectors, suggesting that sectoral composition shifts offer minimal explanatory power and motivating disaggregated outcome analysis.</p>
 
-<p>One other choice: JRR excludes age-0 firms (created in the current year). This follows the original Decker et al. convention. The young-firm employment share, by contrast, includes age-0 entrants in both numerator and denominator. The two indicators have different age conventions; robustness checks confirm the results don't hinge on this.</p>
+<p>Testing seven separate measures identified entry rates as carrying the strongest association (p=0.035 contemporaneous, p=0.015 at three-year lag). Entry-driven employment creation, however, showed weaker results (p=0.13), as did young-firm employment shares (p=0.82). The pattern is suggestive rather than conclusive: IPP intensity correlates with the number of entering establishments rather than their average scale. Such a decline carries implications for dynamism measurement but does not rule out confounding mechanisms.</p>
 
+<h2>Sources of Identification Challenge</h2>
 
+<p>Three identification strategies merit discussion. Event study analysis centered on 2001 dot-com, 2008 GFC, and 2020 COVID episodes. The expectation was that high-IPP-intensity sectors would exhibit differential post-shock recovery patterns if intangible capital buffers or amplifies cyclical effects. Across seven specifications, post-event coefficients remained statistically indistinguishable from zero. This finding suggests, if anything, that the mechanism operates along secular rather than cyclical dimensions.</p>
 
-<h2>Why Sector-Year, Not 3-Digit NAICS</h2>
+<p>The panel specification reveals a more serious constraint. The baseline point estimate is IPP share, −0.057 (p=0.376). When sector-specific linear trends enter the model, the coefficient reverses: IPP share, +0.142 (p=0.025).</p>
 
+<p>This reversal reflects a fundamental identification problem. Treatment varies only at the sector level (19 groups). Sector-by-year fixed effects cannot be included without absorbing all identifying variation. Consequently, any slow-moving sectoral characteristic—demographic aging, regulatory evolution, industry consolidation, structural labor-force composition—that correlates with both IPP investment and low churn will bias the estimate.</p>
 
+<p>The sector-trend specification approximates absorption of these time-invariant or slowly-varying confounders. The sign reversal suggests the raw panel association primarily reflects cross-sector long-run comovement (technology-intensive sectors structurally exhibit lower churn) rather than within-sector substitution dynamics between capital types.</p>
 
-<p>Treatment data (IPP intensity) comes from BEA Fixed Assets, published at the 2-digit BEA industry level (19 sectors). Job data come from BDS at 3-digit NAICS. Early exploration ran regressions at the 3-digit level, treating each 3-digit industry as having the IPP intensity of its parent sector. This created problems.</p>
+<p>A secondary diagnostic, the asset-type placebo test, does indicate specificity: equipment investment correlates positively with JRR (+0.09 contemporaneous, +0.16 lagged), opposite to IPP. This pattern rules out the hypothesis that capital-intensive sectors generically exhibit low churn. Yet the equipment effect also attenuates with sector trends, suggesting fragility in even this more refined result.</p>
 
+<h2>Complementary Approaches and Extensions</h2>
 
+<p>Establishment-level data from the Census Bureau (LBD or RE-LBD) would permit treatment variation within sector-year, enabling sector-by-year fixed effects. Within-sector comparison across time, conditional on establishment identity, offers an alternative identifying strategy that would not require strong assumptions about cross-sector comovement.</p>
 
-<p>First, there's no identifying variation. IPP intensity is constant within sector-year, so adding 3-digit fixed effects alongside sector fixed effects just erases the signal. Second, there's the cluster issue: 86 industries but only 19 cluster groups (the BEA sectors). With \~40 parameters and 19 clusters, the clustered covariance matrix becomes singular.</p>
+<p>Firm-level accounting data on intangible capital stocks—capitalized R&D, software, and purchased intangibles—would allow direct measurement rather than reliance on investment flows as a proxy. Administrative tax records or specialized surveys could provide such detail.</p>
 
+<p>Alternative samples merit exploration: restricting to sectors with historically high or low intangible intensity and examining whether the relationship stabilizes; splitting by establishment size to test whether the pattern concentrates among young or small firms; or examining entry versus survival separately using establishment-level flow data where accessible.</p>
 
+<p>Public sector-level data as currently available does not appear sufficient to isolate the causal channel. Identification fundamentally depends on resolving confounding with sectoral trends that operate over decades.</p>
 
-<p>The solution is to aggregate to sector-year level. This gives 513 observations. Treatment varies at the sector-year level, no collinearity, and 19 clusters is still few but mathematically workable.</p>
+<h2>Validation and Robustness</h2>
 
-
-
-<p>The trade-off is clear: 3-digit granularity is preserved in the data construction (it affects the weighting in the aggregation) but not in the regression. The 3-digit detail determines which establishments are weighted, not the identifying variation.</p>
-
-
-
-<h2>Which Outcome Matters</h2>
-
-
-
-<p>The job reallocation rate is a composite: job creation plus job destruction. If intangible capital primarily deters entry of new firms (raising barriers to scale software stacks), it might suppress job creation from births but leave job destruction from incumbent churn unchanged.</p>
-
-
-
-<p>The shift-share decomposition revealed that 105% of the aggregate JRR decline is within-sector, eliminating sectoral reallocation as an explanation and motivating tests of finer-grained outcomes.</p>
-
-
-
-<p>Regressing seven separate outcomes showed entry rate to be the strongest signal (p=0.035 contemporaneous, p=0.015 lag-3). But entry-rate-driven employment (jobs created by births) was not significant (p=0.13), nor was young-firm employment share (p=0.82).</p>
-
-
-
-<p>This matters. IPP intensity correlates with numbers of entering establishments, not the scale of entry. A small-scale entry decline is economically meaningful for dynamism but leaves reverse-causality concerns unresolved. Do high-IPP sectors have structurally low churn for reasons unrelated to capital composition?</p>
-
-
-
-<h2>Why Identification Failed</h2>
-
-
-
-<p>Three specifications tested the causal hypothesis. The event study centered on 2008 GFC, 2001 dot-com, and 2020 COVID. If intangibles dampen crisis recovery differentially, high-intensity sectors should show negative post-event coefficients. They don't. Zero significant effects across seven specifications. This rules out crisis-triggered mechanisms; the hypothesis could be slow secular trend or cyclical acceleration, and the null event-study rules out the latter.</p>
-
-
-
-<p>The core problem emerges in the panel specification. Main result: IPP share, −0.057 (p=0.376). Add sector-specific linear trends: IPP share, +0.142 (p=0.025). The sign flips.</p>
-
-
-
-<p>This is fatal for identification. Treatment varies only at 19 sectors. Cannot include sector-by-year fixed effects without loss of identifying variation. Any slow-moving sectoral characteristic correlated with IPP intensity will confound the estimate: aging population, regulatory environment, consolidation, structural labor-force composition changes. All of these could drive both IPP investment and low churn, independently.</p>
-
-
-
-<p>The sector-trend specification absorbs these unobservables. The sign reversal suggests the raw association was driven by cross-sector long-run comovement (high-tech sectors naturally have lower churn), not within-sector substitution dynamics.</p>
-
-
-
-<p>The placebo test (equipment and structures) shows asset-type specificity: equipment flips sign relative to IPP. This is good; it rules out "capital-intensive sectors churn less." But equipment itself becomes insignificant with sector trends. Specificity is demonstrated but fragile.</p>
-
-
-
-<h2>What Would Fix It</h2>
-
-
-
-<p>Establishment-level data (Census LBD or RE-LBD) would allow treatment to vary within sector-year across establishments. This enables sector-by-year fixed effects without collinearity. You could then compare JRR trends within sector across time, asking whether establishments that intensify intangible capital show different churn dynamics. That's the difference-in-differences logic you need.</p>
-
-
-
-<p>Firm-level intangible capital data (R\&D, capitalized software, purchased intangibles) would further isolate the mechanism. Public data does not support this level of identification.</p>
-
-
-
-<h2>Robustness</h2>
-
-
-
-<p>Decomposition holds across six period cuts: within-share ranges 102–109%. All 21 tests reported (7 outcomes × 3 specs). No selective reporting. Entry rate remains strongest; all disappear with trends. BEA row alignment verified, BDS denominator audit passed, and the three asset classes (IPP, equipment, structures) sum to total fixed assets with \&lt;0.01% deviation in the analysis period (1997+).</p>
-
+<p>Shift-share decomposition proves consistent across six alternative period definitions, with within-sector shares ranging from 102% to 109%. All 21 empirical tests (seven outcomes, three specifications each) are reported without selection. Entry rates maintain the strongest signal; all specifications weaken or reverse when sector trends are added. Data quality checks confirm row alignment across BEA tables, validity of the BDS denominator choice, and <0.01% residual across the asset-class decomposition (IPP, equipment, structures as shares of total fixed assets) during the analysis period.</p>
