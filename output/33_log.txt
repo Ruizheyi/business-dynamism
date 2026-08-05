@@ -1,0 +1,75 @@
+panel: 13728 rows, 33 states, 16 sectors, 1990-2015
+
+NOTE: TWFE is biased under staggered adoption. p-values unreliable
+at ~12 effective clusters. Point estimates and STABILITY only.
+
+==============================================================================
+1. BASELINE TWFE  (state-year + sector-year + state-sector FE)
+==============================================================================
+b is per 1 unit of treatment (= 100pp of value added), so it is huge.
+'1sd' is the readable number: pp change in outcome per 1sd of treatment.
+
+entry_rate:
+  rd only                      N=13727  rd b=    -33.2 t=-0.81  1sd=-0.0249pp
+  rd + itc (horse race)        N=13727  rd b=    -43.2 t=-1.02  1sd=-0.0324pp  |  itc b=    -40.4 t=-1.74  1sd=-0.1446pp
+  rd + itc, emp weighted       N=13727  rd b=    -56.6 t=-0.98  1sd=-0.0425pp  |  itc b=     -4.9 t=-0.56  1sd=-0.0175pp
+
+jrr:
+  rd only                      N=13728  rd b=     -3.7 t=-0.04  1sd=-0.0028pp
+  rd + itc (horse race)        N=13728  rd b=    -14.3 t=-0.15  1sd=-0.0107pp  |  itc b=    -43.0 t=-1.17  1sd=-0.1537pp
+  rd + itc, emp weighted       N=13728  rd b=   -127.5 t=-1.09  1sd=-0.0956pp  |  itc b=     25.1 t= 1.15  1sd=+0.0896pp
+
+exit_rate:
+  rd only                      N=13728  rd b=      7.4 t= 0.16  1sd=+0.0056pp
+  rd + itc (horse race)        N=13728  rd b=     11.0 t= 0.23  1sd=+0.0082pp  |  itc b=     14.4 t= 1.63  1sd=+0.0516pp
+  rd + itc, emp weighted       N=13728  rd b=     27.5 t= 0.74  1sd=+0.0206pp  |  itc b=      4.6 t= 0.67  1sd=+0.0163pp
+
+==============================================================================
+2. LEAVE-ONE-STATE-OUT  (entry_rate, rd coefficient)
+==============================================================================
+full sample beta_rd = -43.2
+
+largest swings when a state is dropped:
+ dropped_fips  beta_rd  pct_change
+           45    -61.4       -42.1
+           22    -58.0       -34.4
+            4    -55.7       -29.1
+            9    -55.5       -28.4
+           17    -54.6       -26.4
+  ...
+ dropped_fips  beta_rd  pct_change
+           21    -34.4        20.3
+           35    -34.4        20.4
+           11    -32.2        25.5
+           37    -31.2        27.6
+            6    -27.3        36.9
+
+  range of beta_rd: -61.4 to -27.3
+  sign flips in 0 of 33 drops
+
+==============================================================================
+3. HIGH-VARIATION SECTORS vs THE REST
+==============================================================================
+sectors 31-33 and 51 hold 84%% of identifying variation.
+if the effect only exists there, the paper is about those sectors.
+
+entry_rate:
+  manuf + info only            N= 1715  rd b=   -142.3 t=-0.62  1sd=-0.2444pp  |  itc b=     10.8 t= 0.79  1sd=+0.0598pp
+  all other sectors            N=12012  rd b=    -34.1 t=-0.22  1sd=-0.0051pp  |  itc b=    -61.1 t=-2.08  1sd=-0.1906pp
+
+jrr:
+  manuf + info only            N= 1716  rd b=   2807.6 t= 3.60  1sd=+4.8197pp  |  itc b=     51.3 t= 0.96  1sd=+0.2844pp
+  all other sectors            N=12012  rd b=   1200.6 t= 1.56  1sd=+0.1787pp  |  itc b=    -43.7 t=-0.88  1sd=-0.1363pp
+
+exit_rate:
+  manuf + info only            N= 1716  rd b=    -60.0 t=-0.23  1sd=-0.1030pp  |  itc b=     -3.1 t=-0.24  1sd=-0.0171pp
+  all other sectors            N=12012  rd b=   -174.6 t=-1.18  1sd=-0.0260pp  |  itc b=     24.0 t= 1.96  1sd=+0.0749pp
+
+==============================================================================
+4. LEAD TEST  (entry_rate on rd led 3 years)
+==============================================================================
+if the future predicts the present, the design has a pre-trend problem.
+
+  rd lead3 + itc lead3         N=12143  rd_lead3 b=      2.1 t= 0.02  1sd=+0.0017pp  |  itc_lead3 b=    -15.1 t=-1.37  1sd=-0.0561pp
+
+  (a large lead coefficient is bad news, not a result)
