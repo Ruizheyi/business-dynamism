@@ -1,0 +1,97 @@
+==============================================================================
+1. THE SPLIT, DONE CORRECTLY THIS TIME
+==============================================================================
+script 33 ran the split as separate subsample regressions. With two
+sectors in the high group, state-year FE leaves only the
+manufacturing-minus-information difference and the estimator
+degenerates. Here 'high' is a dummy interacted in the full sample,
+so the other fourteen sectors still identify the state-year terms.
+
+  high group: 31-33, 51
+  employment share of high group: 0.166
+  exposure: 31-33 = 1.000, 51 = 0.725, all others <= 0.224
+
+entry_rate (mean 12.06):
+  aggregate, no gradient             beta=+0.2977  p=0.055  CI [-0.0039, +0.6045]  (-0.0%, +5.0%)
+  binary gradient (high vs rest)     beta=+0.3238  p=0.216  CI [-0.1929, +0.8122]  (-1.6%, +6.7%)
+  continuous gradient                beta=+0.2531  p=0.270  CI [-0.2160, +0.7394]  (-1.8%, +6.1%)
+  binary, controlling continuous     beta=+1.7929  p=0.070  CI [-0.1770, +3.7209]  (-1.5%, +30.9%)
+
+exit_rate (mean 10.60):
+  aggregate, no gradient             beta=+0.0621  p=0.748  CI [-0.2934, +0.4538]  (-2.8%, +4.3%)
+  binary gradient (high vs rest)     beta=+0.2169  p=0.393  CI [-0.2866, +0.7078]  (-2.7%, +6.7%)
+  continuous gradient                beta=+0.2021  p=0.422  CI [-0.3315, +0.7093]  (-3.1%, +6.7%)
+  binary, controlling continuous     beta=+0.7586  p=0.387  CI [-1.1693, +2.5808]  (-11.0%, +24.4%)
+
+jrr (mean 31.52):
+  aggregate, no gradient             beta=-0.0245  p=0.942  CI [-0.5823, +0.5341]  (-1.8%, +1.7%)
+  binary gradient (high vs rest)     beta=+0.3670  p=0.686  CI [-1.3837, +2.2207]  (-4.4%, +7.0%)
+  continuous gradient                beta=+0.2516  p=0.787  CI [-1.7169, +2.1547]  (-5.4%, +6.8%)
+  binary, controlling continuous     beta=+2.5100  p=0.340  CI [-2.9675, +7.3034]  (-9.4%, +23.2%)
+
+==============================================================================
+2. IS THE BINARY GRADIENT STABLE ACROSS REFERENCE PERIODS?
+==============================================================================
+this is the question. the continuous version swung from +0.25 to
+-0.05 in script 39. if the binary version holds steady, the
+heterogeneity is real and the continuous measure was just noisy.
+if it swings too, there is no robust heterogeneity.
+
+ref        term                                 beta        p   95% CI
+-1         aggregate (no gradient)           +0.2977    0.059   [-0.0185, +0.6103]
+-1         binary gradient                   +0.3238    0.172   [-0.1650, +0.8431]
+-1         continuous gradient               +0.2531    0.287   [-0.2046, +0.7000]
+
+-2         aggregate (no gradient)           +0.2760    0.070   [-0.0264, +0.5675]
+-2         binary gradient                   +0.0969    0.636   [-0.3244, +0.5328]
+-2         continuous gradient               +0.0415    0.853   [-0.4125, +0.4559]
+
+-3         aggregate (no gradient)           +0.2949    0.061   [-0.0014, +0.6074]
+-3         binary gradient                   +0.2346    0.216   [-0.1252, +0.6120]
+-3         continuous gradient               +0.1872    0.351   [-0.2189, +0.5466]
+
+avg_pre    aggregate (no gradient)           +0.2773    0.142   [-0.0976, +0.6443]
+avg_pre    binary gradient                   -0.0028    0.983   [-0.3384, +0.3141]
+avg_pre    continuous gradient               -0.0474    0.795   [-0.4103, +0.3313]
+
+==============================================================================
+3. WHICH OF THE TWO SECTORS DRIVES IT?
+==============================================================================
+manufacturing is much larger than information. if the result is
+entirely one sector it is much weaker than it looks.
+
+  manufacturing only (31-33)         beta=-0.1781  p=0.283  CI [-0.5135, +0.1271]  (-4.3%, +1.1%)
+  information only (51)              beta=+0.7826  p=0.106  CI [-0.2390, +1.6735]  (-2.0%, +13.9%)
+  professional svc (54, placebo)     beta=-0.1446  p=0.379  CI [-0.4640, +0.1932]  (-3.8%, +1.6%)
+  accommodation (72, placebo)        beta=+0.1692  p=0.423  CI [-0.2557, +0.6177]  (-2.1%, +5.1%)
+
+  sector 54 has exposure 0.224 and 72 has 0.007, both well below
+  31-33 and 51. if they jump too, the split is not picking up
+  R&D exposure but something else about those sectors.
+
+==============================================================================
+4. LEAVE-ONE-STATE-OUT ON THE BINARY GRADIENT
+==============================================================================
+  full sample beta = +0.3238
+
+  range: +0.2457 to +0.4430
+  sign flips: 0 of 27
+  most influential drops:
+    FIPS 35 -> +0.2457 (-24%)
+    FIPS 26 -> +0.2478 (-23%)
+    FIPS  4 -> +0.2506 (-23%)
+    FIPS 21 -> +0.3794 (+17%)
+    FIPS 24 -> +0.3797 (+17%)
+    FIPS 31 -> +0.4430 (+37%)
+
+  wrote output\40_loo_binary.csv
+
+==============================================================================
+READING GUIDE
+==============================================================================
+  binary stable + placebo sectors null + few sign flips
+    -> real heterogeneity; the continuous measure was noisy
+  binary swings like the continuous one did
+    -> no robust heterogeneity; report the aggregate only
+  binary stable but sector 54 or 72 also jumps
+    -> the split is picking up something other than R&D exposure

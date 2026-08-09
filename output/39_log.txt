@@ -1,0 +1,108 @@
+==============================================================================
+1. WHAT IS THE AVERAGE SECTOR'S EXPOSURE?
+==============================================================================
+beta_C is per unit of exposure and exposure is normalised so that
+manufacturing = 1. On its own it is the effect for a sector as
+R&D-exposed as manufacturing, not for a typical sector.
+
+  employment-weighted mean exposure : 0.1778
+  equal-weighted mean exposure      : 0.1271
+
+  exposure and employment share by sector:
+    sector 31-33  exposure 1.000   emp share 0.138
+    sector 51     exposure 0.725   emp share 0.029
+    sector 54     exposure 0.224   emp share 0.062
+    sector 52     exposure 0.012   emp share 0.057
+    sector 23     exposure 0.010   emp share 0.055
+    sector 42     exposure 0.010   emp share 0.051
+    (remaining 10 sectors all below 0.02 exposure)
+
+==============================================================================
+2. THE THREE ESTIMATES, NOW ON THE SAME SCALE
+==============================================================================
+
+entry_rate  (mean 12.06):
+  A aggregate, state-year          beta=+0.2120  p=0.137  CI [-0.0610, +0.5041]  (-0.5%, +4.4%)
+  B aggregate, panel               beta=+0.2977  p=0.048  CI [-0.0054, +0.5862]  (-0.0%, +4.9%)
+  C gradient, per unit exposure    beta=+0.2531  p=0.270  CI [-0.2160, +0.7394]  (-1.8%, +6.1%)
+  C rescaled to mean sector        beta=+0.0450  p=0.270  CI [-0.0384, +0.1315]  (-0.3%, +1.1%)
+    decomposition of the aggregate panel effect:
+      total (B)                       +0.2977
+      attributable to sector gradient +0.0450  (15%)
+      common across sectors           +0.2527  (85%)
+
+exit_rate  (mean 10.60):
+  A aggregate, state-year          beta=-0.0204  p=0.902  CI [-0.3792, +0.3244]  (-3.7%, +3.1%)
+  B aggregate, panel               beta=+0.0621  p=0.748  CI [-0.2934, +0.4538]  (-2.8%, +4.3%)
+  C gradient, per unit exposure    beta=+0.2021  p=0.410  CI [-0.2885, +0.6830]  (-2.7%, +6.4%)
+  C rescaled to mean sector        beta=+0.0359  p=0.410  CI [-0.0513, +0.1215]  (-0.5%, +1.1%)
+    decomposition of the aggregate panel effect:
+      total (B)                       +0.0621
+      attributable to sector gradient +0.0359  (58%)
+      common across sectors           +0.0262  (42%)
+
+jrr  (mean 31.52):
+  A aggregate, state-year          beta=+0.1358  p=0.652  CI [-0.4477, +0.7422]  (-1.5%, +2.5%)
+  B aggregate, panel               beta=-0.0245  p=0.933  CI [-0.6216, +0.5211]  (-2.0%, +1.7%)
+  C gradient, per unit exposure    beta=+0.2516  p=0.792  CI [-1.7154, +2.2403]  (-5.4%, +7.1%)
+  C rescaled to mean sector        beta=+0.0447  p=0.792  CI [-0.3051, +0.3984]  (-1.0%, +1.3%)
+    decomposition of the aggregate panel effect:
+      total (B)                       -0.0245
+      attributable to sector gradient +0.0447  (-183%)
+      common across sectors           -0.0692  (283%)
+      NOTE: total is near zero, so the shares above
+            are not meaningful. read the levels.
+
+==============================================================================
+3. REFERENCE PERIOD SENSITIVITY (entry_rate)
+==============================================================================
+script 37 found the gradient was an artefact of omitting k=-1.
+A and B omit k=-1 too, so the B p=0.052 needs the same check.
+avg_pre is the version that does not depend on any single year.
+
+ref        spec                               beta        p   95% CI
+-1         A aggregate state-year          +0.2120    0.151   [-0.0658, +0.5171]
+-1         B aggregate panel               +0.2977    0.054   [-0.0253, +0.5909]
+-1         C gradient (raw scale)          +0.2531    0.279   [-0.2300, +0.6917]
+
+-2         A aggregate state-year          +0.2152    0.125   [-0.0634, +0.4980]
+-2         B aggregate panel               +0.2760    0.082   [-0.0270, +0.5878]
+-2         C gradient (raw scale)          +0.0415    0.834   [-0.3725, +0.4689]
+
+-3         A aggregate state-year          +0.2300    0.107   [-0.0368, +0.5177]
+-3         B aggregate panel               +0.2949    0.059   [-0.0526, +0.5672]
+-3         C gradient (raw scale)          +0.1872    0.348   [-0.2207, +0.5605]
+
+avg_pre    A aggregate state-year          +0.2506    0.135   [-0.0873, +0.6096]
+avg_pre    B aggregate panel               +0.2773    0.131   [-0.0725, +0.6503]
+avg_pre    C gradient (raw scale)          -0.0474    0.782   [-0.3963, +0.2999]
+
+==============================================================================
+4. HOW MANY CLUSTERS IDENTIFY THE AGGREGATE EFFECT?
+==============================================================================
+  N = 1215, nominal clusters = 27
+  effective clusters ~= 25.8
+  top 5 states hold 0.238 of residual treatment variance
+  FIPS 12 0.053, FIPS 36 0.049, FIPS 8 0.045, FIPS 21 0.045, FIPS 11 0.045
+
+==============================================================================
+5. DOES THE AGGREGATE SURVIVE DROPPING MANUF + INFO?
+==============================================================================
+if the aggregate really were concentrated in the two high-exposure
+sectors, dropping them should kill it. this is the direct test.
+
+  all 16 sectors                   beta=+0.2977  p=0.069  CI [-0.0284, +0.5997]  (-0.2%, +5.0%)
+  drop 31-33 and 51                beta=+0.2572  p=0.116  CI [-0.0666, +0.5864]  (-0.5%, +4.8%)
+  only 31-33 and 51                beta=+0.5814  p=0.017  CI [+0.0840, +1.0450]  (+0.8%, +9.6%)
+
+==============================================================================
+HOW TO READ THIS
+==============================================================================
+  the object Lucia asked for is section 2: the aggregate effect and
+  the sector gradient on a common scale, with the aggregate split
+  into a gradient-attributable part and a part common to all
+  sectors. section 3 decides whether any of it survives dropping
+  the single-year reference. nothing is compared to the FGS 20%:
+  different outcome data, and theirs is cumulative over ten years.
+
+wrote output\39_reconciled.csv

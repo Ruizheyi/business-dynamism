@@ -1,0 +1,84 @@
+==============================================================================
+SAMPLE (identical across all three estimates)
+==============================================================================
+adopters 20, never-treated 7, total states 27
+PDIT-covered sectors: 16 of 19
+
+NOTE: entry and exit rates are rebuilt from counts using the DHS
+denominator, because averaging published sector rates would weight
+a small sector the same as manufacturing.
+
+==============================================================================
+A. AGGREGATE EFFECT, state-year panel
+==============================================================================
+state FE + year FE. treatment is adoption itself, no exposure.
+this is the closest thing in BDS to the FGS estimand.
+
+  entry_rate / all 19 sectors        N=  1215  beta=+0.2120  se=0.1427  p=0.137  CI [-0.0610, +0.5041]
+                                     mean=11.54  ->  CI as % of mean [-0.5%, +4.4%]
+  exit_rate / all 19 sectors         N=  1215  beta=-0.0204  se=0.1696  p=0.903  CI [-0.4007, +0.3382]
+                                     mean=10.30  ->  CI as % of mean [-3.9%, +3.3%]
+  jrr / all 19 sectors               N=  1242  beta=+0.1358  se=0.2936  p=0.630  CI [-0.4401, +0.7299]
+                                     mean=29.47  ->  CI as % of mean [-1.5%, +2.5%]
+
+  entry_rate / PDIT 16 sectors       N=  1215  beta=+0.2066  se=0.1420  p=0.159  CI [-0.0744, +0.4912]
+                                     mean=11.55  ->  CI as % of mean [-0.6%, +4.3%]
+  exit_rate / PDIT 16 sectors        N=  1215  beta=-0.0304  se=0.1693  p=0.874  CI [-0.3853, +0.3530]
+                                     mean=10.30  ->  CI as % of mean [-3.7%, +3.4%]
+  jrr / PDIT 16 sectors              N=  1242  beta=+0.1061  se=0.2912  p=0.723  CI [-0.4839, +0.7408]
+                                     mean=29.52  ->  CI as % of mean [-1.6%, +2.5%]
+
+==============================================================================
+B. AGGREGATE EFFECT, state-sector-year panel
+==============================================================================
+state-sector FE + sector-year FE. same cells as C below, so the
+comparison with the gradient is like for like.
+
+  entry_rate                         N= 19439  beta=+0.2977  se=0.1497  p=0.052  CI [+0.0104, +0.6169]
+                                     mean=12.06  ->  CI as % of mean [+0.1%, +5.1%]
+  exit_rate                          N= 19440  beta=+0.0621  se=0.1749  p=0.699  CI [-0.3036, +0.4197]
+                                     mean=10.60  ->  CI as % of mean [-2.9%, +4.0%]
+  jrr                                N= 19872  beta=-0.0245  se=0.2750  p=0.942  CI [-0.5823, +0.5341]
+                                     mean=31.52  ->  CI as % of mean [-1.8%, +1.7%]
+
+==============================================================================
+C. SECTOR GRADIENT, state-sector-year panel
+==============================================================================
+adds state-year FE and interacts treatment with exposure.
+this absorbs the aggregate effect by construction.
+
+  entry_rate                         N= 19439  beta=+0.2531  se=0.2326  p=0.281  CI [-0.2087, +0.7511]
+                                     mean=12.06  ->  CI as % of mean [-1.7%, +6.2%]
+  exit_rate                          N= 19440  beta=+0.2021  se=0.2391  p=0.391  CI [-0.2661, +0.6890]
+                                     mean=10.60  ->  CI as % of mean [-2.5%, +6.5%]
+  jrr                                N= 19872  beta=+0.2516  se=0.9412  p=0.772  CI [-1.8223, +2.0557]
+                                     mean=31.52  ->  CI as % of mean [-5.8%, +6.5%]
+
+==============================================================================
+SIDE BY SIDE  (this is the table Lucia asked for)
+==============================================================================
+
+entry_rate:
+  A aggregate state-year     beta=+0.2120  p=0.137  CI [-0.0610, +0.5041]  (-0.5%, +4.4%)
+  B aggregate panel          beta=+0.2977  p=0.052  CI [+0.0104, +0.6169]  (+0.1%, +5.1%)
+  C sector gradient          beta=+0.2531  p=0.281  CI [-0.2087, +0.7511]  (-1.7%, +6.2%)
+
+exit_rate:
+  A aggregate state-year     beta=-0.0204  p=0.903  CI [-0.4007, +0.3382]  (-3.9%, +3.3%)
+  B aggregate panel          beta=+0.0621  p=0.699  CI [-0.3036, +0.4197]  (-2.9%, +4.0%)
+  C sector gradient          beta=+0.2021  p=0.391  CI [-0.2661, +0.6890]  (-2.5%, +6.5%)
+
+jrr:
+  A aggregate state-year     beta=+0.1358  p=0.630  CI [-0.4401, +0.7299]  (-1.5%, +2.5%)
+  B aggregate panel          beta=-0.0245  p=0.942  CI [-0.5823, +0.5341]  (-1.8%, +1.7%)
+  C sector gradient          beta=+0.2516  p=0.772  CI [-1.8223, +2.0557]  (-5.8%, +6.5%)
+
+reading guide:
+  A or B positive, C zero  -> policy works, not via R&D exposure
+  A and B zero,   C zero   -> no BDS effect at all; the gap with FGS
+                              is about outcome data, not channels
+  A or B positive, C positive -> gradient exists after all
+nothing here is scaled against the FGS 20%: different outcome data,
+and theirs is a cumulative ten-year figure.
+
+wrote output\38_aggregate_vs_gradient.csv
