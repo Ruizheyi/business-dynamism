@@ -2,7 +2,7 @@
 
 <p>Replication and extension of Decker et al. (2016) using BDS and BEA data. Tests whether intangible capital substitution explains why U.S. business dynamism has been declining.</p>
 
-<p>Short version: intangible investment and business dynamism diverge sharply and consistently, but the divergence is entirely within sectors, and a policy shock aimed straight at intangible capital doesn't move dynamism at all. The decline looks like something other than firms swapping software for workers.</p>
+<p>Short version: intangible investment and business dynamism diverge sharply, and the divergence is entirely within sectors. Using the staggered adoption of state R&amp;D tax credits, establishment entry does respond to the policy in the five years after adoption, but the response does not vary with how R&amp;D-exposed a sector is. Whatever the credit does, it does not work by raising intangible intensity where intangibles matter most.</p>
 
 <hr>
 
@@ -24,7 +24,9 @@
 
 <p><b>Intangible intensity:</b> IPP (intellectual property products—R&amp;D, software, entertainment originals) as % of total fixed investment per sector. Software-only numbers aren't published by industry, so IPP is the finest detail available.</p>
 
-<p><b>Credit exposure:</b> present value of R&amp;D credits over a 20-year simulation as a % of industry value added, aggregated from PDIT's 45 industries to BDS sectors using value-added weights.</p>
+<p><b>Entry and exit rates</b> in the state-by-sector work are rebuilt from establishment counts using the DHS denominator rather than taken from the published rate column, because aggregating published sector rates would weight a tiny sector the same as manufacturing. The rebuilt series correlates 0.9998 with the published one.</p>
+
+<p><b>Credit exposure:</b> present value of R&amp;D credits over a 20-year simulation as a % of industry value added, aggregated from PDIT's 45 industries to BDS sectors with value-added weights, then normalised so manufacturing = 1.</p>
 
 <p>Raw data is gitignored. <code>data/raw/MANIFEST.md</code> lists every file with its source, export settings and expected dimensions.</p>
 
@@ -61,38 +63,58 @@
 
 <p>The variation problem is a geography problem, not a data-source problem. BDS publishes state × sector tables, which expands the panel from 513 cells to 44,574 and — the part that matters — makes state×year and sector×year fixed effects possible at the same time.</p>
 
-<p>The shock is the staggered adoption of state R&amp;D tax credits. 20 states adopt inside the window (MA 1991 through FL 2012), 7 never adopt and serve as controls, 6 already had credits in 1990 and get dropped as left-censored. Event studies only need the adoption year, so outcomes run to 2023 even though PDIT stops in 2015. Treatment is credit generosity interacted with fixed sector exposure; manufacturing is normalized to 1, information is 0.725, professional services 0.224, everything else under 0.02.</p>
+<p>The shock is the staggered adoption of state R&amp;D tax credits. 20 states adopt inside the window (MA 1991 through FL 2012), 7 never adopt and serve as controls, 6 already had credits in 1990 and get dropped as left-censored. The sample runs 1990–2015, which is where PDIT observes whether a credit is actually in force.</p>
 
-<p>Effect of adoption relative to the full pre-window, with wild cluster bootstrap inference:</p>
+<p>Two things are estimated and reported side by side. The <b>aggregate effect</b> uses state-sector and sector-year fixed effects, with adoption itself as the treatment. The <b>sector gradient</b> adds state-year fixed effects and interacts treatment with sector exposure; state-year fixed effects absorb the aggregate effect by construction, so this coefficient answers only whether the response is larger where R&amp;D exposure is higher. All inference is wild cluster bootstrap-t, Rademacher weights, null imposed.</p>
+
+<p>Entry rate, restricted to a balanced event window of five years either side of adoption:</p>
 
 <table>
-<tr><th>Outcome</th><th>β</th><th>p</th><th>95% CI (% of mean)</th></tr>
-<tr><td>Establishment entry rate</td><td>−0.068</td><td>0.681</td><td><b>[−3.7%, +2.3%]</b></td></tr>
-<tr><td>Establishment exit rate</td><td>−0.080</td><td>0.491</td><td>[−3.0%, +1.4%]</td></tr>
-<tr><td>Job reallocation rate</td><td>−0.402</td><td>0.529</td><td>[−5.4%, +2.7%]</td></tr>
+<tr><th>Estimate</th><th>β</th><th>p</th><th>95% CI</th><th>% of mean</th></tr>
+<tr><td><b>Aggregate effect</b></td><td><b>+0.301</b></td><td><b>0.018</b></td><td><b>[+0.050, +0.537]</b></td><td><b>+0.4% to +4.5%</b></td></tr>
+<tr><td>Sector gradient, continuous</td><td>+0.015</td><td>0.933</td><td>[−0.286, +0.305]</td><td>−2.4% to +2.5%</td></tr>
+<tr><td>Sector gradient, binary</td><td>+0.061</td><td>0.663</td><td>[−0.223, +0.340]</td><td>−1.9% to +2.8%</td></tr>
 </table>
 
-<p>Fazio, Guzman &amp; Stern (2020) estimate a <b>+20%</b> state-level effect of the same credits on high-quality new firm formation. These intervals rule out a sector-differential effect anywhere close to that.</p>
+<p>Over the full post window rather than a balanced one the aggregate halves to +0.149 (p=0.307) and the confidence interval covers zero, so the effect is concentrated in the first few years after adoption and dilutes later. Exit rate and job reallocation are zero in every specification tried.</p>
 
-<p><b>What this does and doesn't say.</b> State×year fixed effects absorb exactly the parameter FGS estimate, so this isn't a contradiction of their result — it's a different estimand. What's identified here is whether the credit's effect <i>varies with sector R&amp;D intensity</i>, which is precisely what the substitution mechanism requires. It doesn't. If state R&amp;D credits do raise entrepreneurship, the channel looks state-wide (financing, talent, general business climate) rather than running through raised intangible intensity in R&amp;D-heavy sectors.</p>
+<p>The gradient has now been estimated eleven ways — continuous and binary exposure, four reference periods, balanced and unbalanced windows, corrected and uncorrected treatment coding, with and without never-treated states. Estimates range from −0.32 to +0.78 and none is distinguishable from zero. Individual sector coefficients bear no relation to sector exposure: professional services, at exposure 0.224, comes out more negative than manufacturing at 1.000, and accommodation at 0.007 comes out positive.</p>
+
+<p><b>Reading.</b> Entry responds to adoption in the short run. That response does not vary with sector R&amp;D exposure, which is what the intangible-substitution mechanism requires. Note that this says nothing about the mechanism behind the aggregate effect — establishing that would require ruling out the state-wide channels rather than merely observing that the sector channel is absent.</p>
 
 <hr>
 
 <h2>Things that could be wrong with this</h2>
 
-<p><b>Identifying variation is concentrated.</b> Effective cluster count is 11.7 against a nominal 33; the top five states hold 58% of residual treatment variance and sectors 31-33 and 51 hold 84%. All inference uses wild cluster bootstrap-t, Rademacher weights, null imposed. Leave-one-state-out gives zero sign flips in 33 drops.</p>
+<p><b>The balanced window was chosen after seeing the full-window result.</b> A single post dummy over the full window averages Massachusetts's 25th post-treatment year with Florida's 4th, so restricting to a common horizon is the conceptually cleaner estimand — but the sequence was: run the full window, notice the horizon problem, then restrict. That ordering is stated rather than hidden, and the full-window estimate is reported alongside.</p>
 
-<p><b>Pre-trends aren't rejected, but they aren't confirmed either.</b> Joint pre-period statistic is 7.0 against a 5% critical value of 11.3. Individual leads run 0.10 to 0.43 — not small, just imprecise. That's a failure to reject, and it's written up as one.</p>
+<p><b>Treatment is not absorbing, and coding it as absorbing was an error.</b> Four states in the sample repealed after adopting: Missouri (off 2005–2015, eleven of fifteen post years), Texas (2008–2013), Michigan (2012–2015), Washington (2015). That is 22 of 328 observable post state-years, 6.7%, coded as treated when no credit existed. Correcting it <i>lowers</i> the aggregate estimate from +0.225 to +0.149, the opposite of what attenuation bias predicts, which means entry ran relatively high during the repeal years. With only 22 such state-years this may be chance, but it doesn't support the positive-effect reading.</p>
 
-<p><b>The reference period does real work, so the sensitivity table is in the paper.</b> With k=−1 omitted, the 0≤k&lt;5 coefficient is +0.412 (p=0.057), which looks marginal. But the pre-period coefficient in the same specification is +0.366, nearly identical — k=−1 is just a low point. Omit the whole pre-window instead and it drops to +0.081 (p=0.586) with the post coefficient flipping sign. Headline numbers use the pre-window-average version, which doesn't depend on any single omitted year.</p>
+<p><b>The outcome window can't be extended past 2015.</b> An earlier version ran outcomes to 2023 on the reasoning that an event study only needs the adoption year. That reasoning holds only for absorbing treatment. Since PDIT ends in 2015, treatment status for 2016–2023 is simply unobserved.</p>
 
-<p><b>PDIT's industry dimension is model-imputed.</b> States don't generally set different R&amp;D credit rates by industry; the cross-industry spread comes from applying industry characteristics inside Bartik's hypothetical-firm simulation. It's a defensible exposure measure but it isn't observed policy variation.</p>
+<p><b>Never-treated states matter more than they should.</b> They supply no treatment variation in the gradient specification, but they do help estimate the sector-year fixed effects, which changes the residualised outcome for everyone else. Dropping them moves the gradient from +0.048 to +0.233. The aggregate specifications are less exposed, since there the never-treated states are genuine comparison units.</p>
+
+<p><b>Identifying variation is concentrated.</b> For the gradient, effective cluster count is 11.7 against a nominal 33, the top five states hold 58% of residual treatment variance, and sectors 31-33 and 51 hold 84%. The aggregate is better behaved: 25.8 effective clusters, top five states 23.8%.</p>
+
+<p><b>Pre-trends aren't rejected, but they aren't confirmed either.</b> Joint pre-period statistic 7.0 against a 5% critical value of 11.3. Individual leads run 0.10 to 0.43 — not small, just imprecise. Written up as a failure to reject.</p>
+
+<p><b>PDIT's industry dimension is model-imputed.</b> States don't generally set different R&amp;D credit rates by industry; the cross-industry spread comes from applying industry characteristics inside Bartik's hypothetical-firm simulation. Defensible as an exposure measure, but not observed policy variation. The cross-industry ranking is at least stable across 1992–2015.</p>
 
 <p><b>R&amp;D isn't the intangible capital in the story.</b> The substitution mechanism is mostly about software and organizational capital. Qualified research expenses are mostly wages, so an R&amp;D credit is partly a direct subsidy to research employment, which runs opposite to the substitution prediction in the short run.</p>
+
+<p><b>TWFE under staggered adoption is biased</b> (Goodman-Bacon 2021). Using never-treated states as controls mitigates this but does not fix it. A Callaway–Sant'Anna estimator with continuous treatment has not been implemented.</p>
 
 <p><b>Sector coverage.</b> PDIT has no agriculture, mining or utilities, so 16 of 19 BDS sectors are used. Value-added weights are national and state-invariant.</p>
 
 <p><b>Why not TCJA §174.</b> It looks like the obvious shock — a dated, IPP-specific change in the cost of R&amp;D — but BDS ends in 2023, leaving two post years both inside the post-COVID reallocation surge. It was also reversed retroactively by OBBBA in July 2025 via new §174A, so it only ever bound for tax years 2022–2024, with repeal attempts live throughout. Firms expecting retroactive reversal have little reason to restructure real R&amp;D. And for a profitable firm the NPV cost of five-year amortization is roughly 2–3 cents per dollar of R&amp;D.</p>
+
+<hr>
+
+<h2>On comparison with Fazio, Guzman and Stern (2020)</h2>
+
+<p>FGS use the same PDIT data in a state-level difference-in-differences and find that R&amp;D credits raise high-quality new firm formation by about 20% over ten years. An earlier version of this README scaled the confidence intervals here against that figure. <b>That comparison does not hold.</b> Their outcome is business registration data, including non-employer firms and quality-weighted; the outcome here is BDS employer establishment entry. Their 20% is a cumulative ten-year effect; the estimates here are average post-adoption effects. The two numbers are not on the same scale and are not compared.</p>
+
+<p>The relationship between the two designs is that state-year fixed effects absorb, by construction, exactly the parameter FGS estimate. The gradient result therefore neither confirms nor contradicts them.</p>
 
 <hr>
 
@@ -119,7 +141,13 @@
 34_outlier_check.py           influence and winsorising checks
 36_event_study_wcb.py         event study with wild cluster bootstrap
 37_ref_period.py              reference period sensitivity
+38_aggregate_effect.py        aggregate effect alongside the sector gradient
+39_reconcile.py               puts the two on a common scale, decomposes them
+40_binary_gradient.py         binary split done correctly, placebo sectors
+41_fix_treatment.py           treatment recoded as non-absorbing, balanced window
 </pre>
+
+<p>Scripts 33 and 40 overlap on purpose. Script 33 estimated the sector split as separate subsample regressions; with two sectors in the high group, state-year fixed effects leave only the manufacturing-minus-information difference and the estimator degenerates. That is where a spurious coefficient of 2807 came from. Script 40 redoes it as a dummy interacted in the full sample. Both are kept so the error and the fix are both visible.</p>
 
 <pre>
 py -m pip install -r requirements.txt
