@@ -1,0 +1,115 @@
+==============================================================================
+1. THE CODING ERROR
+==============================================================================
+  states that repealed after adopting:
+    MI adopted 2008, credit off 4 year(s): 2012-2015
+    MO adopted 2001, credit off 11 year(s): 2005-2015
+    TX adopted 2000, credit off 6 year(s): 2008-2013
+    WA adopted 1994, credit off 1 year(s): 2015-2015
+  22 of 328 observable post state-years mis-coded (6.7%)
+
+==============================================================================
+2. MAIN SAMPLE, 1990-2015 (treatment status observed)
+==============================================================================
+* marks p < 0.05.
+
+entry_rate (mean 11.64):
+  aggregate, absorbing (old, wrong)    N= 11231 beta=+0.2250 p=0.224 CI [-0.1267,+0.5949] (-1.1%,+5.1%)
+  aggregate, actual on/off (fixed)     N= 11231 beta=+0.1494 p=0.307 CI [-0.1361,+0.4473] (-1.2%,+3.8%)
+  gradient continuous, fixed           N= 11231 beta=+0.0481 p=0.779 CI [-0.2828,+0.3894] (-2.4%,+3.3%)
+  gradient binary, fixed               N= 11231 beta=+0.0823 p=0.600 CI [-0.2216,+0.3863] (-1.9%,+3.3%)
+
+exit_rate (mean 10.54):
+  aggregate, absorbing (old, wrong)    N= 11232 beta=-0.0354 p=0.805 CI [-0.3619,+0.2807] (-3.4%,+2.7%)
+  aggregate, actual on/off (fixed)     N= 11232 beta=-0.0049 p=0.976 CI [-0.2939,+0.2824] (-2.8%,+2.7%)
+  gradient continuous, fixed           N= 11232 beta=-0.0178 p=0.899 CI [-0.3059,+0.2575] (-2.9%,+2.4%)
+  gradient binary, fixed               N= 11232 beta=+0.0149 p=0.911 CI [-0.2391,+0.2812] (-2.3%,+2.7%)
+
+jrr (mean 30.96):
+  aggregate, absorbing (old, wrong)    N= 11232 beta=-0.2805 p=0.321 CI [-0.8274,+0.3227] (-2.7%,+1.0%)
+  aggregate, actual on/off (fixed)     N= 11232 beta=-0.2164 p=0.399 CI [-0.7371,+0.2802] (-2.4%,+0.9%)
+  gradient continuous, fixed           N= 11232 beta=+0.0332 p=0.940 CI [-0.7722,+0.8815] (-2.5%,+2.8%)
+  gradient binary, fixed               N= 11232 beta=-0.2218 p=0.639 CI [-1.1986,+0.6315] (-3.9%,+2.0%)
+
+  the correction LOWERS the aggregate rather than raising it.
+  mis-coding untreated years as treated should attenuate, so the
+  prior was that fixing it would raise the estimate. It did not,
+  which means entry was relatively high in the repeal years. With
+  only 22 such state-years this could be chance, but it does not
+  support the positive-effect reading.
+
+==============================================================================
+3. BALANCED EVENT WINDOW, k in [-5, 4]
+==============================================================================
+a single post dummy on the full window averages MA's 25th post
+year with FL's 4th. Restricting to five years either side puts
+every adopter on the same horizon. Conceptually this is the
+cleaner estimand, not a specification picked after seeing results.
+
+entry_rate (mean 12.00):
+  aggregate                            N=  5855 beta=+0.3005 p=0.018 CI [+0.0499,+0.5369] (+0.4%,+4.5%) *
+  gradient continuous                  N=  5855 beta=+0.0152 p=0.933 CI [-0.2862,+0.3051] (-2.4%,+2.5%)
+  gradient binary                      N=  5855 beta=+0.0606 p=0.663 CI [-0.2228,+0.3398] (-1.9%,+2.8%)
+
+exit_rate (mean 10.72):
+  aggregate                            N=  5856 beta=-0.0325 p=0.839 CI [-0.3829,+0.2844] (-3.6%,+2.7%)
+  gradient continuous                  N=  5856 beta=-0.0235 p=0.846 CI [-0.2652,+0.2036] (-2.5%,+1.9%)
+  gradient binary                      N=  5856 beta=+0.0063 p=0.952 CI [-0.2612,+0.2808] (-2.4%,+2.6%)
+
+jrr (mean 31.83):
+  aggregate                            N=  5856 beta=-0.2123 p=0.453 CI [-0.7915,+0.3476] (-2.5%,+1.1%)
+  gradient continuous                  N=  5856 beta=-0.3231 p=0.608 CI [-1.5531,+0.8875] (-4.9%,+2.8%)
+  gradient binary                      N=  5856 beta=-0.5246 p=0.384 CI [-1.7443,+0.5536] (-5.5%,+1.7%)
+
+==============================================================================
+4. WHAT DO THE NEVER-TREATED STATES ACTUALLY DO?
+==============================================================================
+I previously asserted they contribute nothing to the gradient
+because their treatment variable is identically zero. That was
+wrong: dropping them changed the coefficient from +0.048 to
++0.233. They supply no treatment variation, but they do help pin
+down the sector-year fixed effects, and that changes the
+residualised outcome for everyone else.
+
+  gradient: all 27 states              N= 11231 beta=+0.0481 p=0.766 CI [-0.2724,+0.3708] (-2.3%,+3.2%)
+  gradient: 20 adopters only           N=  8320 beta=+0.2327 p=0.209 CI [-0.1198,+0.5790] (-1.0%,+5.1%)
+  gradient: balanced window, all states N=  5855 beta=+0.0152 p=0.916 CI [-0.2917,+0.3171] (-2.4%,+2.6%)
+  gradient: balanced window, adopters only N=  2944 beta=+0.1480 p=0.414 CI [-0.2101,+0.5407] (-1.8%,+4.6%)
+
+  if these move a lot, the gradient depends on which states help
+  estimate the sector-year terms, which is worth saying out loud.
+  the aggregate specs are less exposed to this because the
+  never-treated states are genuine comparison units there.
+
+==============================================================================
+5. EXTENDED WINDOW 1990-2023, FOR COMPARISON ONLY
+==============================================================================
+PDIT ends in 2015. Treatment status for 2016-2023 is UNOBSERVED.
+These rows assume every credit stayed in force, which is already
+false for four states inside the observed window. Reported so the
+earlier numbers can be reconciled, not as an estimate.
+
+  aggregate, absorbing to 2023         N= 19439 beta=+0.2773 p=0.125 CI [-0.0719,+0.6559] (-0.6%,+5.4%)
+  gradient continuous to 2023          N= 19439 beta=-0.0474 p=0.794 CI [-0.4200,+0.3274] (-3.5%,+2.7%)
+
+==============================================================================
+6. SUMMARY OF EVERY GRADIENT ESTIMATE RUN SO FAR
+==============================================================================
+  script 36  continuous, event study, ref k=-1      +0.146
+  script 37  continuous, ref = pre-window average   -0.068
+  script 39  continuous, rescaled to mean sector    +0.045
+  script 40  binary, ref k=-1                       +0.324
+  script 40  binary, ref = pre-window average       -0.003
+  script 40  manufacturing alone                    -0.178
+  script 40  information alone                      +0.783
+  script 40  professional services (placebo)        -0.145
+  script 40  accommodation (placebo)                +0.169
+  script 41  continuous, treatment corrected        see above
+  script 41  balanced window                        see above
+
+  no specification produces a gradient that is both signed
+  consistently and distinguishable from zero. Sector coefficients
+  are unrelated to sector exposure: professional services, at
+  exposure 0.224, is more negative than manufacturing at 1.000.
+
+wrote output\41_panel_corrected.csv
