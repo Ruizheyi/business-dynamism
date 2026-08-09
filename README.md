@@ -162,7 +162,12 @@ py scripts/00_verify_data.py
 
 <p>Cameron, A.C., Gelbach, J. &amp; Miller, D. (2008). Bootstrap-based improvements for inference with clustered errors. <i>Review of Economics and Statistics</i> 90(3).</p>
 
-<p>Decker, R., Haltiwanger, J., Jarmin, R. &amp; Miranda, J. (2016). Declining business dynamism: implications for productivity. <i>Brookings Institution</i>.</p>
+
+<p>Decker, R., Haltiwanger, J., Jarmin, R. &amp; Miranda, J. (2014). The role of entrepreneurship in US job creation and economic dynamism. <i>Journal of Economic Perspectives</i> 28(3), 3–24.</p>
+
+<p>Decker, R., Haltiwanger, J., Jarmin, R. &amp; Miranda, J. (2016). Declining business dynamism: what we know and the way forward. <i>American Economic Review: Papers &amp; Proceedings</i> 106(5), 203–207.</p>
+
+<p>Decker, R., Haltiwanger, J., Jarmin, R. &amp; Miranda, J. (2020). Changing business dynamism and productivity: shocks versus responsiveness. <i>American Economic Review</i> 110(12), 3952–3990.</p>
 
 <p>Fazio, C., Guzman, J. &amp; Stern, S. (2020). The impact of state-level R&amp;D tax credits on the quantity and quality of entrepreneurship. <i>Economic Development Quarterly</i> 34(2).</p>
 
