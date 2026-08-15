@@ -1,0 +1,68 @@
+PDIT: 115830 rows, 33 states, 45 industries, 1990-2015
+collapsed to state x sector x year: 13728 rows, 16 sectors
+merged with BDS: 13728 rows
+  states 33 | sectors 16 | years 1990-2015
+  expected 33 x 16 x 26 = 13728
+
+treatment summary (rd credit, pct of value added):
+  mean 0.00019 | sd 0.00075 | max 0.00874 | share zero 0.591
+
+==============================================================
+HOW MUCH TREATMENT VARIATION SURVIVES THE TARGET FE?
+==============================================================
+
+--- rd (Discounted - 12% Rate) ---  N=13728  mean=0.000191  sd=0.000750
+spec                                   sd_res  var_kept
+0 none (raw)                         0.000750     1.000
+2 state-year                         0.000708     0.891
+3 sector-year                        0.000599     0.639
+4 state-year + sector-year           0.000549     0.535
+5 + state-sector  <-TARGET           0.000250     0.111
+
+--- itc (Discounted - 12% Rate) ---  N=13728  mean=0.001038  sd=0.003577
+spec                                   sd_res  var_kept
+0 none (raw)                         0.003577     1.000
+2 state-year                         0.002837     0.629
+3 sector-year                        0.003356     0.880
+4 state-year + sector-year           0.002578     0.520
+5 + state-sector  <-TARGET           0.001145     0.102
+
+--- cit (Discounted - 12% Rate) ---  N=13728  mean=0.010879  sd=0.005639
+spec                                   sd_res  var_kept
+0 none (raw)                         0.005638     1.000
+2 state-year                         0.003856     0.468
+3 sector-year                        0.004443     0.621
+4 state-year + sector-year           0.001740     0.095
+5 + state-sector  <-TARGET           0.000721     0.016
+
+--- export_share (Discounted - 12% Rate) ---  N=13728  mean=0.394342  sd=0.424055
+spec                                   sd_res  var_kept
+0 none (raw)                         0.424040     1.000
+2 state-year                         0.424040     1.000
+3 sector-year                        0.000000     0.000
+4 state-year + sector-year           0.000000     0.000
+5 + state-sector  <-TARGET           0.000000     0.000
+
+==============================================================
+POWER (entry rate as outcome)
+==============================================================
+
+--- entry_rate (BDS) ---  N=13727  mean=11.481519  sd=3.393341
+spec                                   sd_res  var_kept
+0 none (raw)                         3.393218     1.000
+2 state-year                         2.783479     0.673
+3 sector-year                        2.087069     0.378
+4 state-year + sector-year           1.397702     0.170
+5 + state-sector  <-TARGET           1.161256     0.117
+
+  sd_resid(D) = 0.000250
+  sd_resid(Y) = 1.1613 pp
+  SE(beta), iid, no cluster        = 39.69
+  SE(beta), cluster inflation x3 (moderate) = 119.08  -> MDE = 333.42
+  SE(beta), cluster inflation x6 (conservative) = 238.15  -> MDE = 666.83
+
+  MDE is in pp of entry rate per 1 unit of rd (i.e. per 100pp
+  of value added). A 1sd move in rd is 0.00025, so the MDE for a
+  1sd treatment change = MDE * 0.00025.
+
+wrote output\31_pdit_bds_panel.csv  (13728 rows)
