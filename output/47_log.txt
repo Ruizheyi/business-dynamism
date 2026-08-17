@@ -1,0 +1,95 @@
+==============================================================================
+1. THE HEADLINE ESTIMATE, RESTATED
+==============================================================================
+aggregate effect, balanced window, treatment = actual on/off.
+
+  entry_rate   (mean 12.00)  beta=+0.3005  WCB p=0.020  CI [+0.0567,+0.5554]  (+0.5%,+4.6%)
+  exit_rate    (mean 10.72)  beta=-0.0325  WCB p=0.845  CI [-0.3872,+0.2966]  (-3.6%,+2.8%)
+  jc_rate      (mean 16.62)  beta=+0.1255  WCB p=0.524  CI [-0.2978,+0.5536]  (-1.8%,+3.3%)
+  jrr          (mean 31.83)  beta=-0.2123  WCB p=0.416  CI [-0.8232,+0.3513]  (-2.6%,+1.1%)
+
+==============================================================================
+2. THE CHECK THAT KILLED THE EQUIPMENT GRADIENT
+==============================================================================
+leads have never been inspected for the aggregate. Reference k=-1.
+5%% critical values: chi2(3)=7.81, chi2(4)=9.49.
+
+--- entry_rate ---
+    k       beta         se        t
+   -5     0.0658     0.1384     0.48    <- pre
+   -4    -0.1821     0.1432    -1.27  ##  <- pre
+   -3    -0.1178     0.1580    -0.75  #  <- pre
+   -2    -0.0753     0.1423    -0.53    <- pre
+    0    -0.0914     0.1572    -0.58  #
+    1     0.0899     0.1655     0.54  #
+    2     0.1614     0.1654     0.98  ##
+    3     0.1358     0.1386     0.98  #
+    4     0.1574     0.1713     0.92  #
+    5     0.1218     0.1437     0.85  #
+    6    -0.0822     0.1112    -0.74  #
+    7     0.0819     0.1398     0.59  #
+
+  joint Wald on 4 leads: chi2 = 7.90, p = 0.094  <- does not reject
+  mean post coefficient: +0.0718
+  mean pre  coefficient: -0.0773
+  share of the pre-to-post swing occurring before k=0: 52%
+
+--- jc_rate ---
+    k       beta         se        t
+   -5    -0.0676     0.1407    -0.48    <- pre
+   -4     0.0569     0.3018     0.19    <- pre
+   -3    -0.1439     0.3283    -0.44  #  <- pre
+   -2     0.0678     0.2417     0.28    <- pre
+    0    -0.2458     0.2326    -1.06  ###
+    1    -0.0137     0.1842    -0.07  
+    2     0.1559     0.1328     1.17  #
+    3     0.2777     0.1648     1.69  ###
+    4     0.2349     0.1899     1.24  ##
+    5     0.2645     0.1804     1.47  ###
+    6     0.1429     0.1709     0.84  #
+    7    -0.0280     0.2112    -0.13  
+
+  joint Wald on 4 leads: chi2 = 1.03, p = 0.905  <- does not reject
+  mean post coefficient: +0.0985
+  mean pre  coefficient: -0.0217
+  share of the pre-to-post swing occurring before k=0: 18%
+
+--- exit_rate ---
+    k       beta         se        t
+   -5     0.1349     0.1177     1.15  #  <- pre
+   -4     0.0924     0.1410     0.66  #  <- pre
+   -3     0.2662     0.1659     1.60  ###  <- pre
+   -2     0.1807     0.1365     1.32  ##  <- pre
+    0     0.1207     0.1588     0.76  #
+    1     0.0611     0.1373     0.44  
+    2     0.0085     0.1193     0.07  
+    3     0.1946     0.2290     0.85  ##
+    4    -0.0850     0.1290    -0.66  #
+    5     0.0429     0.1233     0.35  
+    6    -0.2748     0.1175    -2.34  ###
+    7    -0.1411     0.1209    -1.17  #
+
+  joint Wald on 4 leads: chi2 = 4.25, p = 0.374  <- does not reject
+  mean post coefficient: -0.0091
+  mean pre  coefficient: +0.1686
+  share of the pre-to-post swing occurring before k=0: 95%
+
+==============================================================================
+3. FAKE ADOPTION TIMING, AGGREGATE
+==============================================================================
+same test the equipment gradient passed. 1000 draws.
+
+entry_rate:
+  real  = +0.3005 | fake mean -0.0011, sd 0.1205 | p = 0.0120 (n=1000)
+jc_rate:
+  real  = +0.1255 | fake mean +0.0035, sd 0.2220 | p = 0.5920 (n=1000)
+
+==============================================================================
+4. HOW TO READ THIS
+==============================================================================
+  leads flat, Wald does not reject -> the aggregate survives the
+     check that killed the equipment gradient, and is the paper's
+     one estimate that has passed a dynamic specification.
+  leads trending, Wald rejects -> the aggregate is also a pre-trend
+     and the paper has no causal estimate at all. That is a
+     legitimate result but it changes what the paper says.

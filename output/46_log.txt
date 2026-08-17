@@ -1,0 +1,93 @@
+==============================================================================
+1. CAPITAL COMPOSITION
+==============================================================================
+equip and struct correlate -0.635 across sectors, so they are two
+ends of one dimension. equip_share = equip/(equip+struct) states
+that dimension directly.
+
+sector      equip   struct equip_share
+23          0.962    0.166       0.846
+42          0.902    0.171       0.834
+31-33       0.553    0.118       0.817
+48-49       0.909    0.216       0.800
+54          0.401    0.115       0.768
+52          0.694    0.281       0.701
+51          0.505    0.212       0.693
+56          0.599    0.378       0.601
+62          0.647    0.410       0.600
+72          0.657    0.450       0.581
+44-45       0.549    0.517       0.502
+55          0.452    0.514       0.455
+71          0.252    0.293       0.449
+81          0.472    0.554       0.447
+61          0.278    0.718       0.269
+53          0.092    1.000       0.081
+
+==============================================================================
+2. DOES COMPOSITION BEAT LEVEL?
+==============================================================================
+if composition is the operative variable, equip_share should be at
+least as strong as equip alone.
+
+jc_rate (mean 16.62):
+  equipment level      beta=+1.6971  WCB p=0.012  CI [+0.4654,+2.9574]
+  structures level     beta=-1.1925  WCB p=0.030  CI [-2.2530,-0.0684]
+  equipment SHARE      beta=+1.4630  WCB p=0.012  CI [+0.3722,+2.5744]
+
+jd_rate (mean 15.20):
+  equipment level      beta=+0.1968  WCB p=0.680  CI [-0.6849,+1.1104]
+  structures level     beta=-0.2833  WCB p=0.492  CI [-1.1635,+0.5492]
+  equipment SHARE      beta=+0.2905  WCB p=0.495  CI [-0.5725,+1.0881]
+
+entry_rate (mean 12.00):
+  equipment level      beta=+0.2834  WCB p=0.107  CI [-0.0662,+0.6297]
+  structures level     beta=-0.3121  WCB p=0.111  CI [-0.6864,+0.0615]
+  equipment SHARE      beta=+0.2516  WCB p=0.137  CI [-0.0756,+0.5903]
+
+==============================================================================
+3. THE TEST THAT SHOULD HAVE COME FIRST: FAKE ADOPTION YEARS
+==============================================================================
+everything so far conditioned on the real adoption timing being
+meaningful. Here every state, treated or not, gets a random
+adoption year drawn from the observed 1991-2012 range, and the
+gradient is re-estimated. 1000 draws.
+
+jc_rate, exposure = eqshare_n:
+  real (true timing)     = +1.4630
+  fake-timing mean       = +0.0264
+  fake-timing sd         = 0.7070
+  fake 2.5 / 97.5 pct    = -1.2596 / +1.4782
+  share |fake| >= |real| = 0.0370  (n draws 1000)
+  -> does not appear under fake timing. The pattern is tied
+     to the actual adoption dates.
+
+jc_rate, exposure = equip_exp:
+  real (true timing)     = +1.6971
+  fake-timing mean       = -0.0096
+  fake-timing sd         = 0.8276
+  fake 2.5 / 97.5 pct    = -1.6568 / +1.6146
+  share |fake| >= |real| = 0.0410  (n draws 1000)
+  -> does not appear under fake timing. The pattern is tied
+     to the actual adoption dates.
+
+==============================================================================
+4. EVENT-TIME SHAPE
+==============================================================================
+if adjustment costs drive this (equipment is quick to buy, buildings
+are slow), the equipment gradient should peak early and fade.
+
+    k       beta         se        t
+   -4    -1.2800     0.9576    -1.34  ####  <- pre
+   -3    -1.5905     0.5998    -2.65  #####  <- pre
+   -2    -0.2012     0.5286    -0.38    <- pre
+    0    -0.0803     0.4455    -0.18  
+    1     0.4487     0.7017     0.64  #
+    2     0.6747     0.6899     0.98  ##
+    3     1.6126     0.5359     3.01  #####
+    4     0.1509     0.6445     0.23  
+    5     0.3691     0.4107     0.90  #
+    6     0.1358     0.3850     0.35  
+
+  joint Wald on 3 leads: chi2 = 10.97
+
+wrote output\46_capital_composition.csv

@@ -1,0 +1,92 @@
+==============================================================================
+1. IS EQUIPMENT INTENSITY A PROXY FOR CYCLICAL SENSITIVITY?
+==============================================================================
+cyc_beta: elasticity of the sector's job creation rate to the
+national rate, estimated on 1978-1989, before any adoption in the
+estimation sample (earliest is MA 1991).
+
+sector      equip   struct  cyc_beta pre_growth    jc_sd
+23          0.962    0.166     2.150      1.97%     4.05
+48-49       0.909    0.216     1.744      1.88%     3.05
+42          0.902    0.171     0.873      2.00%     1.65
+52          0.694    0.281     0.532      2.13%     1.68
+72          0.657    0.450     1.039      3.82%     2.33
+62          0.647    0.410     0.815      4.78%     2.22
+56          0.599    0.378     1.840      6.69%     3.32
+31-33       0.553    0.118     0.885     -1.00%     1.85
+44-45       0.549    0.517     1.032      2.18%     1.82
+51          0.505    0.212    -0.316      1.54%     4.21
+81          0.472    0.554     1.042      2.93%     2.16
+55          0.452    0.514     0.746      2.17%     1.93
+54          0.401    0.115     0.845      6.38%     1.59
+61          0.278    0.718     1.243      2.63%     3.43
+71          0.252    0.293     1.071      4.11%     2.14
+53          0.092    1.000     1.461      4.14%     2.67
+
+  corr(equip, cyclical sensitivity) = +0.219
+  corr(equip, pre-period growth)    = -0.285
+  corr(equip, jc volatility)        = +0.106
+  corr(struct, cyclical sensitivity)= +0.159
+  corr(equip, struct)               = -0.635
+
+  a high first correlation supports explanation A (cycle).
+
+==============================================================================
+2. DOES STRUCTURES INTENSITY DO THE SAME THING?
+==============================================================================
+structures is also tangible capital but sits differently across
+sectors. If tangible capital is the operative characteristic, both
+should show it. If only equipment does, equipment is proxying.
+
+jc_rate (mean 16.62):
+  equip      beta=+1.6971  WCB p=0.012  CI [+0.4654,+2.9574]
+  struct     beta=-1.1925  WCB p=0.030  CI [-2.2530,-0.0684]
+
+jd_rate (mean 15.20):
+  equip      beta=+0.1968  WCB p=0.700  CI [-0.7446,+1.1509]
+  struct     beta=-0.2833  WCB p=0.499  CI [-1.1736,+0.6473]
+
+entry_rate (mean 12.00):
+  equip      beta=+0.2834  WCB p=0.094  CI [-0.0421,+0.6177]
+  struct     beta=-0.3121  WCB p=0.084  CI [-0.6683,+0.0485]
+
+==============================================================================
+3. DOES THE EQUIPMENT GRADIENT SURVIVE CONTROLLING FOR CYCLE?
+==============================================================================
+adding post x cyclical_sensitivity and post x pre_growth.
+
+  equip alone                beta=+1.6971  WCB p=0.011  CI [+0.4725,+2.9776]
+  + cyclical sensitivity     beta=+1.5257  WCB p=0.007  CI [+0.4199,+2.6682]
+  + pre-period growth        beta=+1.8591  WCB p=0.008  CI [+0.4232,+3.1311]
+  + both                     beta=+1.6493  WCB p=0.005  CI [+0.5172,+2.8105]
+  + structures               beta=+1.5788  WCB p=0.015  CI [+0.4795,+2.6885]
+  + intangible + cycle       beta=+1.6955  WCB p=0.019  CI [+0.3713,+3.1120]
+  cycle alone                beta=+0.4730  WCB p=0.055  CI [-0.0002,+0.9651]
+
+==============================================================================
+4. ARE EQUIPMENT-INTENSIVE SECTORS BIGGER IN GENEROUS STATES?
+==============================================================================
+if so, the gradient could reflect where the credit is generous
+rather than what equipment intensity does.
+
+  corr(state equipment weight, max credit generosity) = +0.157
+  n states = 27
+
+==============================================================================
+5. RANDOMISATION AGAIN, NOW FOR STRUCTURES AND CYCLE
+==============================================================================
+  equip_exp    real=+1.6971  placebo sd=0.6857  p=0.0085
+  struct_exp   real=-1.1925  placebo sd=0.6829  p=0.0790
+  cyc_beta     real=+0.4730  placebo sd=0.2850  p=0.0935
+
+==============================================================================
+READING
+==============================================================================
+  equipment survives all controls, structures does nothing
+    -> equipment intensity specifically, and the mechanism is open
+  equipment dies once cycle enters, or cycle alone does the same job
+    -> explanation A, the coefficient was the business cycle
+  both equipment and structures work
+    -> tangible capital broadly, not an equipment story
+
+wrote output\45_sector_traits.csv

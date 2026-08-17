@@ -1,0 +1,135 @@
+==============================================================================
+OUTCOME: entry_rate   (mean 11.64)
+==============================================================================
+
+1. LEAD WALD ACROSS REFERENCE CHOICES
+   script 37 showed a single omitted year can move a p-value
+   from 0.057 to 0.586. The lead test inherits that fragility.
+
+   ref        chi2     df        p   leads
+   -1         7.90      4    0.094   -5,-4,-3,-2
+   -2         7.51      4    0.110   -5,-4,-3,-1
+   -3        13.50      4    0.009   -5,-4,-2,-1
+   -4         7.07      4    0.131   -5,-3,-2,-1
+
+2. LINEAR PRE-TREND
+   the concern is not noisy leads, it is sloping leads.
+   GLS of lead coefficients on event time, using the full
+   covariance matrix.
+
+   slope per event year = -0.0082 (se 0.0443, t -0.19, p 0.853)
+   intercept at k=0     = +0.0129 (se 0.2035)
+   extrapolated pre-trend contribution to a 5-year post
+   average, if the slope continued: -0.0205
+
+3. SENSITIVITY TO PARALLEL-TRENDS VIOLATION
+   Rather than assume parallel trends, allow the post-treatment
+   deviation to be up to M times the largest deviation visible
+   before treatment, and widen the interval accordingly.
+   M=1 means 'no worse after than before'.
+
+   post-period average effect (k=0..4) = +0.0906 (se 0.1245)
+   conventional 95% CI                 = [-0.1535, +0.3347]
+   largest pre-treatment lead, abs     = 0.1821
+
+   M                      95% CI excludes zero?
+   0.0    [-0.1535, +0.3347]      no
+   0.5    [-0.2445, +0.4258]      no
+   1.0    [-0.3356, +0.5168]      no
+   1.5    [-0.4266, +0.6079]      no
+   2.0    [-0.5177, +0.6989]      no
+
+   breakdown M (interval first covers zero): 0.00
+   read as: the estimate survives a post-treatment violation
+   up to 0.00 times the largest pre-treatment deviation.
+
+==============================================================================
+OUTCOME: jc_rate   (mean 16.11)
+==============================================================================
+
+1. LEAD WALD ACROSS REFERENCE CHOICES
+   script 37 showed a single omitted year can move a p-value
+   from 0.057 to 0.586. The lead test inherits that fragility.
+
+   ref        chi2     df        p   leads
+   -1         1.03      4    0.905   -5,-4,-3,-2
+   -2         3.39      4    0.496   -5,-4,-3,-1
+   -3         3.33      4    0.506   -5,-4,-2,-1
+   -4         3.14      4    0.537   -5,-3,-2,-1
+
+2. LINEAR PRE-TREND
+   the concern is not noisy leads, it is sloping leads.
+   GLS of lead coefficients on event time, using the full
+   covariance matrix.
+
+   slope per event year = +0.0277 (se 0.0741, t 0.37, p 0.708)
+   intercept at k=0     = +0.0569 (se 0.3565)
+   extrapolated pre-trend contribution to a 5-year post
+   average, if the slope continued: +0.0694
+
+3. SENSITIVITY TO PARALLEL-TRENDS VIOLATION
+   Rather than assume parallel trends, allow the post-treatment
+   deviation to be up to M times the largest deviation visible
+   before treatment, and widen the interval accordingly.
+   M=1 means 'no worse after than before'.
+
+   post-period average effect (k=0..4) = +0.0818 (se 0.1169)
+   conventional 95% CI                 = [-0.1474, +0.3110]
+   largest pre-treatment lead, abs     = 0.1439
+
+   M                      95% CI excludes zero?
+   0.0    [-0.1474, +0.3110]      no
+   0.5    [-0.2194, +0.3830]      no
+   1.0    [-0.2913, +0.4549]      no
+   1.5    [-0.3633, +0.5269]      no
+   2.0    [-0.4353, +0.5988]      no
+
+   breakdown M (interval first covers zero): 0.00
+   read as: the estimate survives a post-treatment violation
+   up to 0.00 times the largest pre-treatment deviation.
+
+==============================================================================
+OUTCOME: exit_rate   (mean 10.54)
+==============================================================================
+
+1. LEAD WALD ACROSS REFERENCE CHOICES
+   script 37 showed a single omitted year can move a p-value
+   from 0.057 to 0.586. The lead test inherits that fragility.
+
+   ref        chi2     df        p   leads
+   -1         4.25      4    0.374   -5,-4,-3,-2
+   -2         4.35      4    0.361   -5,-4,-3,-1
+   -3         2.92      4    0.574   -5,-4,-2,-1
+   -4         2.95      4    0.568   -5,-3,-2,-1
+
+2. LINEAR PRE-TREND
+   the concern is not noisy leads, it is sloping leads.
+   GLS of lead coefficients on event time, using the full
+   covariance matrix.
+
+   slope per event year = +0.0459 (se 0.0516, t 0.89, p 0.373)
+   intercept at k=0     = +0.2437 (se 0.2257)
+   extrapolated pre-trend contribution to a 5-year post
+   average, if the slope continued: +0.1148
+
+3. SENSITIVITY TO PARALLEL-TRENDS VIOLATION
+   Rather than assume parallel trends, allow the post-treatment
+   deviation to be up to M times the largest deviation visible
+   before treatment, and widen the interval accordingly.
+   M=1 means 'no worse after than before'.
+
+   post-period average effect (k=0..4) = +0.0600 (se 0.1003)
+   conventional 95% CI                 = [-0.1367, +0.2566]
+   largest pre-treatment lead, abs     = 0.2662
+
+   M                      95% CI excludes zero?
+   0.0    [-0.1367, +0.2566]      no
+   0.5    [-0.2698, +0.3897]      no
+   1.0    [-0.4029, +0.5228]      no
+   1.5    [-0.5360, +0.6560]      no
+   2.0    [-0.6691, +0.7891]      no
+
+   breakdown M (interval first covers zero): 0.00
+   read as: the estimate survives a post-treatment violation
+   up to 0.00 times the largest pre-treatment deviation.
+

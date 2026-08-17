@@ -1,0 +1,78 @@
+==============================================================================
+1. HOW UNBALANCED IS THE WINDOW USED SO FAR?
+==============================================================================
+sample 1990-2015. A state contributes event year k only if
+adopt+k falls inside the sample.
+
+    k      states  missing
+   -5  14 of 20    AZ,CT,IL,MA,NJ,WA
+   -4  16 of 20    AZ,CT,IL,MA
+   -3  17 of 20    AZ,IL,MA
+   -2  18 of 20    IL,MA
+   -1  20 of 20    -
+   +0  20 of 20    -
+   +1  20 of 20    -
+   +2  20 of 20    -
+   +3  20 of 20    -
+   +4  19 of 20    FL
+
+  the states absent at k=-5 are the earliest adopters, so leads
+  and lags are estimated off different sets of states. This window
+  is truncated, not balanced.
+
+==============================================================================
+2. TIGHTENING THE WINDOW TOWARD FULL BALANCE
+==============================================================================
+entry_rate. As the window narrows, coverage becomes complete but
+the sample shrinks. If the estimate holds, imbalance was not
+driving it.
+
+  k in [-5,+4]  13/20 states complete      N= 5855 beta=+0.3005 p=0.020 CI [+0.0567,+0.5554] *
+  k in [-4,+3]  16/20 states complete      N= 5327 beta=+0.3231 p=0.014 CI [+0.0965,+0.5647] *
+  k in [-3,+2]  17/20 states complete      N= 4751 beta=+0.2511 p=0.035 CI [+0.0123,+0.4516] *
+  k in [-2,+1]  18/20 states complete      N= 4159 beta=+0.1897 p=0.069 CI [-0.0219,+0.3958]
+  k in [-1,+1]  20/20 states complete      N= 3871 beta=+0.1517 p=0.140 CI [-0.0439,+0.3631]
+
+  k in [-2,+1] is the first fully balanced window.
+
+  same for the other outcomes, k in [-3,+2]:
+  exit_rate                                N= 4752 beta=-0.0591 p=0.694 CI [-0.3077,+0.2046]
+  jc_rate                                  N= 4752 beta=+0.0615 p=0.741 CI [-0.3000,+0.4270]
+
+==============================================================================
+3. ADOPTION COHORTS
+==============================================================================
+TWFE with staggered timing is most misleading when effects differ
+across cohorts. Early adopters also spend more of the sample
+treated, so they carry more weight in the pooled estimate.
+
+  early cohort (1991-1998): 9 states  AZ,CT,GA,IL,MA,NC,NJ,PA,WA
+  late  cohort (2000-2012): 11 states  FL,LA,MD,MI,MO,NE,NM,NY,OH,SC,TX
+
+  window k in [-5,+4]:
+      all adopters                         N= 5855 beta=+0.3005 p=0.019 CI [+0.0421,+0.5436] *
+      early only                           N= 4111 beta=+0.1946 p=0.333 CI [-0.2533,+0.5755]
+      late only                            N= 4655 beta=+0.3525 p=0.049 CI [+0.0167,+0.7057] *
+
+  window k in [-3,+2]:
+      all adopters                         N= 4751 beta=+0.2511 p=0.022 CI [+0.0417,+0.4676] *
+      early only                           N= 3695 beta=+0.1655 p=0.322 CI [-0.1694,+0.4989]
+      late only                            N= 3967 beta=+0.2959 p=0.086 CI [-0.0650,+0.6269]
+
+==============================================================================
+4. EVENT STUDY ON THE FULLY BALANCED WINDOW
+==============================================================================
+k in [-3,+2], 18 of 20 states complete, treatment = actual status,
+reference k=-1.
+
+    k       beta         se        t
+   -3    -0.0625     0.1433    -0.44  <- pre
+   -2    -0.0489     0.0924    -0.53  <- pre
+    0     0.0526     0.0961     0.55
+    1     0.2669     0.1322     2.02
+    2     0.3360     0.1331     2.52
+
+  lead Wald chi2(2) = 0.30, p = 0.859
+  mean post effect = +0.2185 (se 0.0943)  CI [+0.0337,+0.4033]
+  mean lead        = -0.0557
+  net of lead mean = +0.2742

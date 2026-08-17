@@ -1,0 +1,63 @@
+==============================================================================
+1. RANDOMISATION WITH 5000 PERMUTATIONS
+==============================================================================
+script 43 used 500, giving a Monte Carlo SE of 0.0097 around
+p=0.05, so its 95%% interval for the true p was [0.031, 0.069].
+At 5000 draws the SE falls to about 0.0031.
+
+jrr          real=+1.8940  placebo sd=0.9863  p=0.0510 (MC SE 0.0031, CI [0.045, 0.057])
+entry_rate   real=+0.2834  placebo sd=0.3047  p=0.3772 (MC SE 0.0069, CI [0.364, 0.391])
+jc_rate      real=+1.6971  placebo sd=0.6736  p=0.0074 (MC SE 0.0012, CI [0.005, 0.010])
+jd_rate      real=+0.1968  placebo sd=0.5045  p=0.7170 (MC SE 0.0064, CI [0.705, 0.729])
+
+==============================================================================
+2. IS IT ONE SECTOR? LEAVE-ONE-SECTOR-OUT
+==============================================================================
+permutation cannot tell whether equipment intensity is the
+operative characteristic or whether one sector drives everything.
+this can. jrr, equipment gradient.
+
+  full sample beta = +1.8940
+
+dropped     equip       beta     change
+55          0.452     1.5705       -17%
+48-49       0.909     1.7351        -8%
+23          0.962     1.7423        -8%
+52          0.694     1.7894        -6%
+51          0.505     1.8356        -3%
+62          0.647     1.8639        -2%
+72          0.657     1.8766        -1%
+56          0.599     1.8890        -0%
+31-33       0.553     1.8945         0%
+44-45       0.549     1.8957         0%
+71          0.252     1.8993         0%
+81          0.472     1.9340         2%
+53          0.092     1.9590         3%
+61          0.278     2.0625         9%
+54          0.401     2.1366        13%
+42          0.902     2.2511        19%
+
+  range +1.5705 to +2.2511, sign flips 0 of 16
+
+==============================================================================
+3. WHICH SIDE OF JRR MOVES?
+==============================================================================
+jrr = job creation + job destruction, over the DHS denominator.
+A credit that raised entry would show up in creation. Destruction
+moving instead would be harder to attribute to the policy.
+
+  jrr        (mean 31.83)  beta=+1.8940  WCB p=0.023  CI [+0.1386,+3.5103]  (+0.4%,+11.0%)
+  jc_rate    (mean 16.62)  beta=+1.6971  WCB p=0.010  CI [+0.5218,+2.8472]  (+3.1%,+17.1%)
+  jd_rate    (mean 15.20)  beta=+0.1968  WCB p=0.661  CI [-0.7104,+1.2301]  (-4.7%,+8.1%)
+
+==============================================================================
+4. VERDICT
+==============================================================================
+  randomisation p for the jrr equipment gradient: 0.0510
+  -> borderline. Report the coefficient, do not interpret it.
+
+  whatever the number, the randomisation test cannot attribute
+  the effect to equipment intensity specifically. Leave-one-sector-out
+  in section 2 is the check that can.
+
+wrote output\44_loso_equip.csv

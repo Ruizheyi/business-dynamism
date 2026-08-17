@@ -1,0 +1,140 @@
+==============================================================================
+1. THE TWO EXPOSURE MEASURES
+==============================================================================
+PDIT: how much R&D credit money the sector can claim.
+BEA:  IPP / total fixed investment, 1985-89, pre-treatment.
+The hypothesis is about the second. The gradient test used the first.
+
+  Pearson  r = 0.573
+  Spearman r = 0.506
+
+sector         PDIT        BEA      equip
+54            0.224      1.000      0.401
+71            0.006      0.944      0.252
+31-33         1.000      0.750      0.553
+51            0.725      0.671      0.505
+52            0.012      0.253      0.694
+55            0.006      0.247      0.452
+56            0.006      0.244      0.599
+61            0.007      0.182      0.278
+81            0.007      0.147      0.472
+62            0.006      0.112      0.647
+42            0.010      0.108      0.902
+44-45         0.006      0.084      0.549
+72            0.007      0.028      0.657
+23            0.010      0.027      0.962
+48-49         0.001      0.020      0.909
+53            0.001      0.004      0.092
+
+==============================================================================
+2. HORSE RACE: WHICH EXPOSURE, IF EITHER, PREDICTS THE EFFECT?
+==============================================================================
+balanced window k in [-5,4], 1990-2015, treatment = actual on/off.
+
+entry_rate  (establishment entry, mean 12.00):
+  aggregate (no gradient)            N= 5855 beta=+0.3005 p=0.020 CI [+0.0567,+0.5554] (+0.5%,+4.6%) *
+  PDIT exposure alone                N= 5855 beta=+0.0152 p=0.914 CI [-0.2786,+0.3178] (-2.3%,+2.6%)
+  BEA exposure alone                 N= 5855 beta=+0.0375 p=0.772 CI [-0.2225,+0.2855] (-1.9%,+2.4%)
+  both: PDIT coefficient             N= 5855 beta=-0.0139 p=0.952 CI [-0.4666,+0.4223] (-3.9%,+3.5%)  VIF=1.49
+  both: BEA coefficient              N= 5855 beta=+0.0445 p=0.784 CI [-0.3086,+0.4274] (-2.6%,+3.6%)  VIF=1.49
+  equipment (placebo)                N= 5855 beta=+0.2834 p=0.081 CI [-0.0511,+0.6082] (-0.4%,+5.1%)
+
+birth_emp_rate  (employment from births, mean 5.91):
+  aggregate (no gradient)            N= 5855 beta=+0.0738 p=0.402 CI [-0.1039,+0.2602] (-1.8%,+4.4%)
+  PDIT exposure alone                N= 5855 beta=+0.0256 p=0.910 CI [-0.4342,+0.4823] (-7.3%,+8.2%)
+  BEA exposure alone                 N= 5855 beta=-0.2055 p=0.333 CI [-0.6220,+0.2055] (-10.5%,+3.5%)
+  both: PDIT coefficient             N= 5855 beta=+0.2390 p=0.409 CI [-0.3562,+0.8533] (-6.0%,+14.4%)  VIF=1.49
+  both: BEA coefficient              N= 5855 beta=-0.3253 p=0.212 CI [-0.8091,+0.2162] (-13.7%,+3.7%)  VIF=1.49
+  equipment (placebo)                N= 5855 beta=+0.4993 p=0.059 CI [-0.0033,+1.0227] (-0.1%,+17.3%)
+
+exit_rate  (establishment exit, mean 10.72):
+  aggregate (no gradient)            N= 5856 beta=-0.0325 p=0.849 CI [-0.3668,+0.3128] (-3.4%,+2.9%)
+  PDIT exposure alone                N= 5856 beta=-0.0235 p=0.843 CI [-0.2636,+0.2089] (-2.5%,+1.9%)
+  BEA exposure alone                 N= 5856 beta=+0.0583 p=0.692 CI [-0.2348,+0.3594] (-2.2%,+3.4%)
+  both: PDIT coefficient             N= 5856 beta=-0.0920 p=0.581 CI [-0.4233,+0.2465] (-3.9%,+2.3%)  VIF=1.49
+  both: BEA coefficient              N= 5856 beta=+0.1045 p=0.615 CI [-0.2654,+0.5280] (-2.5%,+4.9%)  VIF=1.49
+  equipment (placebo)                N= 5856 beta=-0.1783 p=0.424 CI [-0.6028,+0.2269] (-5.6%,+2.1%)
+
+jrr  (job reallocation, mean 31.83):
+  aggregate (no gradient)            N= 5856 beta=-0.2123 p=0.453 CI [-0.7915,+0.3476] (-2.5%,+1.1%)
+  PDIT exposure alone                N= 5856 beta=-0.3231 p=0.608 CI [-1.5531,+0.8875] (-4.9%,+2.8%)
+  BEA exposure alone                 N= 5856 beta=-0.2800 p=0.367 CI [-0.9051,+0.3780] (-2.8%,+1.2%)
+  both: PDIT coefficient             N= 5856 beta=-0.2078 p=0.798 CI [-1.6092,+1.2114] (-5.1%,+3.8%)  VIF=1.49
+  both: BEA coefficient              N= 5856 beta=-0.1758 p=0.654 CI [-1.0141,+0.6709] (-3.2%,+2.1%)  VIF=1.49
+  equipment (placebo)                N= 5856 beta=+1.8940 p=0.034 CI [+0.2126,+3.5987] (+0.7%,+11.3%) *
+
+==============================================================================
+3. DROPPING SECTOR 71 (ARTS AND ENTERTAINMENT)
+==============================================================================
+BEA IPP bundles R&D, software AND entertainment originals. Sector 71
+scores 0.944 on the BEA measure almost entirely on film and music
+copyrights, which is not the intangible capital in the story.
+
+entry_rate:
+  BEA exposure, all sectors          N= 5855 beta=+0.0375 p=0.757 CI [-0.2166,+0.2786] (-1.8%,+2.3%)
+  BEA exposure, drop 71              N= 5489 beta=+0.0358 p=0.797 CI [-0.1937,+0.2704] (-1.6%,+2.3%)
+
+birth_emp_rate:
+  BEA exposure, all sectors          N= 5855 beta=-0.2055 p=0.339 CI [-0.6077,+0.2147] (-10.3%,+3.6%)
+  BEA exposure, drop 71              N= 5489 beta=-0.0051 p=0.985 CI [-0.3731,+0.4019] (-6.3%,+6.8%)
+
+==============================================================================
+4. PROPER PRE-TREND WALD TEST
+==============================================================================
+script 36 summed squared t-stats, ignoring covariance between leads,
+and did it on the absorbing-treatment sample that script 41 overturned.
+redone here with the full cluster covariance matrix.
+
+--- entry_rate, exposure = post_bea ---
+    k       beta         se        t
+   -5     0.3228     0.2462     1.31  <- pre
+   -4     0.0345     0.2358     0.15  <- pre
+   -3     0.1991     0.3110     0.64  <- pre
+   -2     0.3180     0.2265     1.40  <- pre
+    0     0.1452     0.1667     0.87
+    1     0.4527     0.2637     1.72
+    2     0.4172     0.2076     2.01
+    3     0.3386     0.2092     1.62
+    4     0.2092     0.1840     1.14
+    5     0.4940     0.2434     2.03
+    6     0.2455     0.1971     1.25
+    7     0.2387     0.2651     0.90
+    8     0.0686     0.2153     0.32
+
+  joint Wald on 4 pre-period leads: chi2 = 3.39, p = 0.496
+  (script 36 reported sum of t^2 = 7.0 vs a made-up critical
+   value; that number should not be used)
+
+--- entry_rate, exposure = post_pdit ---
+    k       beta         se        t
+   -5     0.3849     0.2882     1.34  <- pre
+   -4     0.3748     0.3258     1.15  <- pre
+   -3     0.2038     0.3270     0.62  <- pre
+   -2     0.4528     0.2530     1.79  <- pre
+    0     0.0460     0.2727     0.17
+    1     0.3869     0.4043     0.96
+    2     0.6812     0.2825     2.41
+    3     0.7055     0.3283     2.15
+    4     0.2349     0.2525     0.93
+    5     0.2304     0.3535     0.65
+    6     0.8049     0.3406     2.36
+    7     0.1967     0.3624     0.54
+    8     0.1509     0.2636     0.57
+
+  joint Wald on 4 pre-period leads: chi2 = 3.76, p = 0.441
+  (script 36 reported sum of t^2 = 7.0 vs a made-up critical
+   value; that number should not be used)
+
+==============================================================================
+5. WHAT THIS CHANGES
+==============================================================================
+  BEA coefficient zero too -> the null is now robust to TWO
+     independent exposure measures, which is a stronger claim
+     than the one the README currently makes.
+  BEA coefficient nonzero  -> the earlier null came from sorting
+     sectors on the wrong variable. That is a real finding and the
+     gradient section has to be rewritten around it.
+  equipment placebo nonzero -> whatever is going on is not specific
+     to intangibles.
+
+wrote output\42_exposure_measures.csv and 42_panel.csv
