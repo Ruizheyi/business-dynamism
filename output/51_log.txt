@@ -1,0 +1,124 @@
+==============================================================================
+1. ERROR #15: EVERY WINDOW THE COVERAGE CRITERION ALLOWS
+==============================================================================
+the stated rule was 'adopters with complete event-time coverage'.
+script 50 only tried symmetric contractions, so k in [-3,+3] was
+never run even though k=+3 has 20/20 coverage and [-3,+3] therefore
+has the same 17/20 complete adopters as [-3,+2].
+
+window         complete       N       beta        p                 95% CI
+k[-5,+0]         14/20    4591    +0.1189    0.283  [-0.0874,+0.3405]
+k[-5,+1]         14/20    4911    +0.2198    0.062  [-0.0099,+0.4531]
+k[-5,+2]         14/20    5231    +0.2657    0.041  [+0.0000,+0.4978] *
+k[-5,+3]         14/20    5551    +0.3013    0.026  [+0.0462,+0.5662] *
+k[-5,+4]         13/20    5855    +0.3005    0.014  [+0.0662,+0.5515] *
+k[-4,+0]         16/20    4367    +0.1426    0.168  [-0.0663,+0.3305]
+k[-4,+1]         16/20    4687    +0.2451    0.046  [+0.0075,+0.4817] *
+k[-4,+2]         16/20    5007    +0.2876    0.025  [+0.0468,+0.5309] *
+k[-4,+3]         16/20    5327    +0.3231    0.017  [+0.0776,+0.5633] *
+k[-4,+4]         15/20    5631    +0.3140    0.015  [+0.0919,+0.5572] *
+k[-3,+0]         17/20    4111    +0.1018    0.248  [-0.0904,+0.2852]
+k[-3,+1]         17/20    4431    +0.2094    0.056  [-0.0034,+0.4201]
+k[-3,+2]         17/20    4751    +0.2511    0.032  [+0.0330,+0.4856] *
+k[-3,+3]         17/20    5071    +0.2861    0.021  [+0.0490,+0.5076] *
+k[-3,+4]         16/20    5375    +0.2778    0.021  [+0.0508,+0.5225] *
+k[-2,+0]         18/20    3839    +0.0892    0.354  [-0.1055,+0.2847]
+k[-2,+1]         18/20    4159    +0.1897    0.092  [-0.0269,+0.4077]
+k[-2,+2]         18/20    4479    +0.2363    0.031  [+0.0357,+0.4564] *
+k[-2,+3]         18/20    4799    +0.2727    0.019  [+0.0592,+0.4956] *
+k[-2,+4]         17/20    5103    +0.2529    0.010  [+0.0740,+0.4590] *
+k[-1,+0]         20/20    3551    +0.0291    0.759  [-0.1531,+0.2099]
+k[-1,+1]         20/20    3871    +0.1517    0.124  [-0.0509,+0.3509]
+k[-1,+2]         20/20    4191    +0.2032    0.036  [+0.0180,+0.3907] *
+k[-1,+3]         20/20    4511    +0.2435    0.031  [+0.0151,+0.4328] *
+k[-1,+4]         19/20    4815    +0.2186    0.019  [+0.0354,+0.4005] *
+
+  windows with 17/20 complete coverage:
+    k[-3,+0]  beta=+0.1018  p=0.248
+    k[-3,+1]  beta=+0.2094  p=0.056
+    k[-3,+2]  beta=+0.2511  p=0.032
+    k[-3,+3]  beta=+0.2861  p=0.021
+    k[-2,+4]  beta=+0.2529  p=0.010
+
+  share of all 25 windows with p<0.05: 0.64
+  beta range across all windows: +0.0291 to +0.3231
+  sign flips: 0
+
+==============================================================================
+2. DOES absorb() ACTUALLY CONVERGE?
+==============================================================================
+the review asked for a convergence warning. The stronger test is
+orthogonality: after absorption every fixed-effect group mean of
+the residual should be ~0, regardless of iteration count.
+
+  k[-3,+2] 2-way (st-sec, sec-yr)   iters= 25  last change=5.16e-10  converged=True
+      max |group mean| after absorption: 3.05e-10  2.06e-16
+  k[-3,+2] 3-way                    iters= 23  last change=9.83e-10  converged=True
+      max |group mean| after absorption: 3.96e-12  3.87e-10  2.73e-16
+  k[-3,+3] 2-way (st-sec, sec-yr)   iters= 25  last change=5.53e-10  converged=True
+      max |group mean| after absorption: 2.94e-10  3.17e-16
+  k[-3,+3] 3-way                    iters= 23  last change=8.49e-10  converged=True
+      max |group mean| after absorption: 9.89e-12  3.28e-10  3.42e-16
+  k[-5,+4] 2-way (st-sec, sec-yr)   iters= 24  last change=8.77e-10  converged=True
+      max |group mean| after absorption: 4.74e-10  2.09e-16
+  k[-5,+4] 3-way                    iters= 23  last change=4.60e-10  converged=True
+      max |group mean| after absorption: 1.38e-11  1.61e-10  2.14e-16
+
+==============================================================================
+3. THE IMPLICIT WEIGHTS BEHIND SPEC B
+==============================================================================
+the handoff wrote beta_B = gamma * E[g] + common with E[g] = 0.178,
+the employment-weighted mean exposure. Spec B is unweighted FE OLS,
+so its implicit weights come from residualised treatment variation.
+Those weights are computed here so the right number can be quoted.
+
+sector     exposure   emp weight  implicit weight
+23            0.010        0.056            0.063
+42            0.010        0.048            0.063
+44-45         0.006        0.134            0.063
+48-49         0.001        0.037            0.063
+52            0.012        0.053            0.063
+51            0.725        0.029            0.063
+53            0.001        0.018            0.063
+54            0.224        0.065            0.063
+62            0.006        0.132            0.063
+55            0.006        0.029            0.063
+56            0.006        0.076            0.063
+61            0.007        0.023            0.063
+72            0.007        0.100            0.063
+71            0.006        0.015            0.063
+81            0.007        0.050            0.063
+31-33         1.000        0.135            0.062
+
+  employment-weighted mean exposure  = 0.1760   (used in the handoff)
+  implicitly-weighted mean exposure  = 0.1271   (what spec B uses)
+
+  the two differ, so the 15%%/85%% split in section 5.1 of the
+  handoff is not a decomposition. Report only: evaluating the
+  gradient at mean exposure gives gamma * 0.1271.
+
+==============================================================================
+4. HEADLINE WITH 9999 BOOTSTRAP DRAWS
+==============================================================================
+999 draws give a Monte Carlo SE of about 0.006 at p=0.035, so the
+conclusion will not flip, but this is the final number.
+
+  k[-3,+2]  beta=+0.2511  se=0.1094  p=0.0275 (MC SE 0.0016)  CI [+0.0290,+0.4746]
+  k[-3,+3]  beta=+0.2861  se=0.1135  p=0.0183 (MC SE 0.0013)  CI [+0.0560,+0.5189]
+
+==============================================================================
+5. DIRECT TEST OF COHORT EQUALITY
+==============================================================================
+one estimate significant and one not does not establish that they
+differ. H0: beta_early = beta_late, tested by interacting treatment
+with a late-cohort indicator.
+
+  k[-3,+2]  late-minus-early = +0.1258  WCB p=0.637  CI [-0.3864,+0.6506]
+  k[-3,+3]  late-minus-early = +0.1295  WCB p=0.641  CI [-0.3612,+0.6410]
+  k[-5,+4]  late-minus-early = +0.1490  WCB p=0.570  CI [-0.3618,+0.6601]
+
+  if this interaction is not significant, the paper must say the
+  data do not establish cohort heterogeneity, not that the split is
+  'probably power'.
+
+wrote output\51_window_grid.csv
